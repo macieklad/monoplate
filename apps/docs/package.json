@@ -1,5 +1,5 @@
 {
-  "name": "@acme/docs",
+  "name": "@airhelp/react-docs",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,12 +9,13 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
-    "@acme/core": "*",
+    "@airhelp/react-text": "*",
+    "@airhelp/react-styles": "*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@acme/tsconfig": "*",
+    "@airhelp/react-tsconfig": "*",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-docs": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.18",

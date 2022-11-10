@@ -14,12 +14,19 @@ module.exports = {
       resolve: {
         alias: [
           {
-            find: "@acme/core",
+            find: "@airhelp/react-text",
             replacement: path.resolve(
               __dirname,
-              "../../../packages/acme-core/"
+              "../../../packages/airhelp-react-text"
             ),
           },
+          {
+            find: "@airhelp/react-styles",
+            replacement: path.resolve(
+              __dirname,
+              "../../../packages/airhelp-react-styles/dist"
+            ),
+          }
         ],
       },
     };

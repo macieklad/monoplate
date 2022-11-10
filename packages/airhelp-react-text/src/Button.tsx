@@ -5,7 +5,7 @@ export interface ButtonProps {
 }
 
 export function Button(props: ButtonProps) {
-  return <button>{props.children} this changes fast :></button>;
+  return <button className="text-blue-400">{props.children} this changes fast</button>;
 }
 
 Button.displayName = "Button";
