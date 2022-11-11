@@ -5634,7 +5634,7 @@ eslint@8.4.1:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-eslint@^8.15.0:
+eslint@^8.15.0, eslint@^8.27.0:
   version "8.27.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.27.0.tgz#d547e2f7239994ad1faa4bb5d84e5d809db7cf64"
   integrity sha512-0y1bfG2ho7mty+SiILVf9PfuRA49ek4Nc60Wmmu62QlobNR+CeXa4xXIJgcuwSQgZiWaPH+5BDsctpIW0PR/wQ==
