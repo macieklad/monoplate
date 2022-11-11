@@ -13,12 +13,12 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
-    "sync": "syncpack fix-mismatches --source package.json --source packages/*/package.json --source apps/*/package.json",
-    "check-sync": "syncpack list-mismatches --source package.json --source packages/*/package.json --source apps/*/package.json"
+    "sync": "syncpack fix-mismatches",
+    "check-sync": "syncpack list-mismatches"
   },
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
-    "eslint": "^8.15.0",
+    "eslint": "^8.27.0",
     "eslint-config-airhelp-react": "*",
     "prettier": "^2.5.1",
     "syncpack": "^8.3.9",
