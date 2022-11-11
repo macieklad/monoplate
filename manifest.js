@@ -6,6 +6,7 @@ const packageMap = {
   '@airhelp/react-text': 'airhelp-react-text',
   '@airhelp/react-styles': 'airhelp-react-styles',
   '@airhelp/react-tsconfig': 'airhelp-tsconfig',
+  '@airhelp/react-package-template': 'airhelp-react-package-template',
   'eslint-config-airhelp-react': 'eslint-config-airhelp-react',
 };
 
