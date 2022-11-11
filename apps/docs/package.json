@@ -11,7 +11,7 @@
   "dependencies": {
     "@airhelp/react-text": "*",
     "@airhelp/react-styles": "*",
-    "react": "^18.0.0",
+    "react": "^18.1.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "@storybook/builder-vite": "^0.1.33",
     "@storybook/react": "^6.4.18",
     "@vitejs/plugin-react": "^1.3.2",
-    "eslint-config-acme": "*",
+    "eslint-config-airhelp-react": "*",
     "serve": "^13.0.2",
     "typescript": "^4.5.4",
     "vite": "^2.9.9"
