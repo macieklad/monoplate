@@ -6,7 +6,5 @@ const generator = tailwindNext(
   path.resolve(__dirname, '../../packages'),
 );
 
-console.log(generator({}));
-
 /** @type {import('tailwindcss').Config} */
 module.exports = generator({});
