@@ -1,6 +1,6 @@
 const path = require('path');
+const base = require('./talwind.base.config');
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     path.resolve(__dirname, '../../packages/**/src/**/*.{tsx,ts,js,html,mdx}'),
@@ -9,8 +9,5 @@ module.exports = {
       '../../apps/docs/stories/**/*.{tsx,ts,js,html,mdx}',
     ),
   ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+  ...base,
 };
