@@ -5,6 +5,7 @@
   "license": "MIT",
   "files": [
     "dist/**",
+    "fonts/**",
     "index.js",
     "tailwind.config.base.js"
   ],
