@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-airhelp-react",
+  "name": "eslint-config-airhelp",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",

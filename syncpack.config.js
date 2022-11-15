@@ -3,6 +3,6 @@ const packageFilter = (ignoredPrefixes) => {
 };
 
 module.exports = {
-  filter: packageFilter(['@airhelp\\/', 'eslint-config-airhelp-react']),
+  filter: packageFilter(['@airhelp\\/', 'eslint-config-airhelp']),
   source: ['package.json', 'packages/*/package.json', 'apps/*/package.json'],
 };
