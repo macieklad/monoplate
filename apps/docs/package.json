@@ -9,13 +9,13 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
-    "@airhelp/react-text": "*",
+    "@airhelp/react": "*",
     "@airhelp/react-styles": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@airhelp/react-tsconfig": "*",
+    "@airhelp/tsconfig": "*",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-docs": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.18",

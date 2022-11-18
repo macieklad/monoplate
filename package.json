@@ -1,6 +1,5 @@
 {
   "private": true,
-  "packageManager": "yarn",
   "workspaces": [
     "packages/*",
     "apps/*"
@@ -10,7 +9,10 @@
     "dev": "turbo run dev --no-cache --parallel --continue",
     "dev:color": "FORCE_COLOR=1 yarn dev",
     "lint": "turbo run lint",
-    "test": "turbo run test",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "setup:e2e": "npx playwright install",
     "clean": "turbo run clean && rm -rf node_modules",
     "clean:lock": "yarn clean && rm -f yarn.lock yarn-error.log && yarn",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
@@ -21,9 +23,12 @@
     "check-sync": "syncpack list-mismatches"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.22.0",
-    "eslint": "^8.27.0",
+    "@airhelp/react-testing": "*",
+    "@airhelp/tsconfig": "*",
     "eslint-config-airhelp": "*",
+    "@changesets/cli": "^2.22.0",
+    "@playwright/test": "^1.28.0",
+    "eslint": "^8.27.0",
     "prettier": "^2.5.1",
     "syncpack": "^8.3.9",
     "turbo": "latest"

@@ -1,5 +1,5 @@
 {
-  "name": "@airhelp/react-text",
+  "name": "@airhelp/react",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -18,17 +18,20 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@airhelp/react-tsconfig": "*",
     "@airhelp/react-testing": "*",
-    "eslint-config-airhelp": "*",
+    "@airhelp/tsconfig": "*",
     "@types/react": "18.0.25",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.27.0",
+    "eslint-config-airhelp": "*",
     "react": "^18.2.0",
     "tsup": "^5.10.1",
     "typescript": "^4.8.4"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "react-polymorphic-types": "^2.0.0"
   }
 }

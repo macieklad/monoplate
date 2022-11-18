@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@airhelp/react-testing": "*",
-    "@airhelp/react-tsconfig": "*",
+    "@airhelp/tsconfig": "*",
     "eslint-config-airhelp": "*",
     "@types/react": "18.0.25",
     "@types/react-dom": "^18.0.8",

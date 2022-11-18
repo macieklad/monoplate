@@ -3,9 +3,9 @@ const path = require('path');
 const packageRoot = path.resolve(__dirname, 'packages');
 
 const packageMap = {
-  '@airhelp/react-text': 'airhelp-react-text',
+  '@airhelp/react': 'airhelp-react',
   '@airhelp/react-styles': 'airhelp-react-styles',
-  '@airhelp/react-tsconfig': 'airhelp-tsconfig',
+  '@airhelp/tsconfig': 'airhelp-tsconfig',
   '@airhelp/react-testing': 'airhelp-react-testing',
   '@airhelp/react-package-template': 'airhelp-react-package-template',
   'eslint-config-airhelp': 'eslint-config-airhelp',
