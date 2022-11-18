@@ -2,7 +2,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: [
-        'AirHelp',
+        'acme',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',

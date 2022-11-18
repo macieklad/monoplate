@@ -1,4 +1,4 @@
-import '@airhelp/react-styles/base.css';
+import '@acme/react-styles/base.css';
 import { Story, Meta } from '@storybook/react';
 import { Text, TextProps, UnstyledText } from './Text';
 

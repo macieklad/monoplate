@@ -7,5 +7,5 @@
   "linked": [],
   "access": "public",
   "updateInternalDependencies": "patch",
-  "ignore": ["@airhelp/react-storybook", "example-next"]
+  "ignore": ["@acme/react-storybook", "example-next"]
 }

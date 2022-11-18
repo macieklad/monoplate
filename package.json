@@ -23,9 +23,9 @@
     "check-sync": "syncpack list-mismatches"
   },
   "devDependencies": {
-    "@airhelp/react-testing": "*",
-    "@airhelp/tsconfig": "*",
-    "eslint-config-airhelp": "*",
+    "@acme/react-testing": "*",
+    "@acme/tsconfig": "*",
+    "eslint-config-acme": "*",
     "@changesets/cli": "^2.22.0",
     "@playwright/test": "^1.28.0",
     "eslint": "^8.27.0",

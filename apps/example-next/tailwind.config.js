@@ -1,5 +1,5 @@
 const path = require('path');
-const { tailwindNext } = require('@airhelp/react-styles');
+const { tailwindNext } = require('@acme/react-styles');
 
 const generator = tailwindNext(
   __dirname,

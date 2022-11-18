@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['airhelp'],
+  extends: ['acme'],
   settings: {
     next: {
       rootDir: ['apps/*/'],

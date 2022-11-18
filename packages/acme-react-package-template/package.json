@@ -1,5 +1,5 @@
 {
-  "name": "@airhelp/react-package-template",
+  "name": "@acme/react-package-template",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -18,9 +18,9 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@airhelp/react-testing": "*",
-    "@airhelp/tsconfig": "*",
-    "eslint-config-airhelp": "*",
+    "@acme/react-testing": "*",
+    "@acme/tsconfig": "*",
+    "eslint-config-acme": "*",
     "@types/react": "18.0.25",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.27.0",

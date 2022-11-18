@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@airhelp/react-styles": "*",
+    "@acme/react-styles": "*",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.27.0",
-    "eslint-config-airhelp": "*",
+    "eslint-config-acme": "*",
     "next": "13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

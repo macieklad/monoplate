@@ -1,5 +1,5 @@
 {
-  "name": "@airhelp/react",
+  "name": "@acme/react",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -18,12 +18,12 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@airhelp/react-testing": "*",
-    "@airhelp/tsconfig": "*",
+    "@acme/react-testing": "*",
+    "@acme/tsconfig": "*",
     "@types/react": "18.0.25",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.27.0",
-    "eslint-config-airhelp": "*",
+    "eslint-config-acme": "*",
     "react": "^18.2.0",
     "tsup": "^5.10.1",
     "typescript": "^4.8.4"

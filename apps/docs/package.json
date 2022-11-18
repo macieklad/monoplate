@@ -1,5 +1,5 @@
 {
-  "name": "@airhelp/react-storybook",
+  "name": "@acme/react-storybook",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,13 +9,13 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
-    "@airhelp/react": "*",
-    "@airhelp/react-styles": "*",
+    "@acme/react": "*",
+    "@acme/react-styles": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@airhelp/tsconfig": "*",
+    "@acme/tsconfig": "*",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-docs": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.18",
@@ -23,7 +23,7 @@
     "@storybook/builder-vite": "^0.1.33",
     "@storybook/react": "^6.4.18",
     "@vitejs/plugin-react": "^2.2.0",
-    "eslint-config-airhelp": "*",
+    "eslint-config-acme": "*",
     "serve": "^13.0.2",
     "typescript": "^4.8.4",
     "vite": "^2.9.9"

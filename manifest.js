@@ -3,16 +3,16 @@ const path = require('path');
 const packageRoot = path.resolve(__dirname, 'packages');
 
 const packageMap = {
-  '@airhelp/react': 'airhelp-react',
-  '@airhelp/react-styles': 'airhelp-react-styles',
-  '@airhelp/tsconfig': 'airhelp-tsconfig',
-  '@airhelp/react-testing': 'airhelp-react-testing',
-  '@airhelp/react-package-template': 'airhelp-react-package-template',
-  'eslint-config-airhelp': 'eslint-config-airhelp',
+  '@acme/react': 'acme-react',
+  '@acme/react-styles': 'acme-react-styles',
+  '@acme/tsconfig': 'acme-tsconfig',
+  '@acme/react-testing': 'acme-react-testing',
+  '@acme/react-package-template': 'acme-react-package-template',
+  'eslint-config-acme': 'eslint-config-acme',
 };
 
 const storybookCustomSources = {
-  '@airhelp/react-styles': 'dist',
+  '@acme/react-styles': 'dist',
 };
 
 function packages() {

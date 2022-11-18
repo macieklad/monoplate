@@ -1,12 +1,12 @@
 {
-  "name": "@airhelp/react-testing",
+  "name": "@acme/react-testing",
   "version": "0.0.0",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@airhelp/tsconfig": "*",
+    "@acme/tsconfig": "*",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.24",
