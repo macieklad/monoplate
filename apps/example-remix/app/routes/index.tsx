@@ -1,7 +1,11 @@
+import { Text } from '@acme/react';
+
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
+      <Text as="h1" className="text-blue-400">
+        Welcome to acme remix!
+      </Text>
       <ul>
         <li>
           <a

@@ -1,5 +1,6 @@
 {
   "name": "example-next",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +10,7 @@
   },
   "dependencies": {
     "@acme/react-styles": "*",
+    "@acme/react": "*",
     "@types/node": "18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",

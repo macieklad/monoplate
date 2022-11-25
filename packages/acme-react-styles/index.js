@@ -38,7 +38,17 @@ const tailwindNext = (appDir, packageDir) => (localConfig) =>
     localConfig,
   );
 
+const tailwindRemix = (appDir, packageDir) => (localConfig) =>
+  mergeConfigs(
+    baseConfig,
+    {
+      content: [path.resolve(appDir, 'app', '**/*.{tsx,mdx,jsx,js,ts,md}')],
+    },
+    localConfig,
+  );
+
 module.exports = {
   mergeConfigs,
   tailwindNext,
+  tailwindRemix,
 };
