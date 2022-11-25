@@ -3,6 +3,6 @@ const packageFilter = (ignoredPrefixes) => {
 };
 
 module.exports = {
-  filter: packageFilter(['@acme\\/', 'eslint-config-acme']),
+  workspace: false,
   source: ['package.json', 'packages/*/package.json', 'apps/*/package.json'],
 };
