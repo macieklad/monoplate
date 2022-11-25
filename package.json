@@ -20,7 +20,8 @@
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
     "sync": "syncpack fix-mismatches",
-    "check-sync": "syncpack list-mismatches"
+    "check-sync": "syncpack list-mismatches",
+    "check-manifest": "node scripts/validate-packages.js"
   },
   "devDependencies": {
     "@acme/react-testing": "*",
