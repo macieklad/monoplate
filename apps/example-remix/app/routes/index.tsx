@@ -3,7 +3,7 @@ import { Text } from '@acme/react';
 export default function Index() {
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
-      <Text as="h1" className="text-yellow-400">
+      <Text as="h1" className="text-blue-400">
         Welcome to acme remix!
       </Text>
       <ul>

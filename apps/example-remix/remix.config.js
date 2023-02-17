@@ -4,8 +4,7 @@ const path = require('path');
 module.exports = {
   ignoredRouteFiles: ['**/.*'],
   watchPaths: [path.resolve('../../packages/acme-react/dist/index.js')],
-  // appDirectory: "app",
-  // assetsBuildDirectory: "public/build",
-  // serverBuildPath: "build/index.js",
-  // publicPath: "/build/",
+  future: {
+    unstable_tailwind: true,
+  },
 };
