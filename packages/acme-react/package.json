@@ -32,6 +32,7 @@
     "access": "public"
   },
   "dependencies": {
+    "class-variance-authority": "^0.4.0",
     "react-polymorphic-types": "^2.0.0"
   }
 }

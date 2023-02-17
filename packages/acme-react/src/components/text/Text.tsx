@@ -1,53 +1,45 @@
-import { cs } from '../../utils';
 import React, { forwardRef } from 'react';
 import type {
   PolymorphicForwardRefExoticComponent,
   PolymorphicPropsWithoutRef,
   PolymorphicPropsWithRef,
 } from 'react-polymorphic-types';
+import { cva, VariantProps } from "class-variance-authority";
 
-export type TextSize =
-  | 'xs'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | '2xl'
-  | '3xl'
-  | '4xl'
-  | '5xl'
-  | '6xl'
-  | '7xl';
-export type TextWeight = 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
-export type TextAlign = 'left' | 'center' | 'right';
-
-const sizes: Record<TextSize, string> = {
-  xs: 'text-xs',
-  sm: 'text-sm',
-  md: 'text-base',
-  lg: 'text-lg',
-  xl: 'text-xl',
-  '2xl': 'text-2xl',
-  '3xl': 'text-3xl',
-  '4xl': 'text-4xl',
-  '5xl': 'text-5xl',
-  '6xl': 'text-6xl',
-  '7xl': 'text-7xl',
-};
-
-const weights: Record<TextWeight, string> = {
-  light: 'font-light',
-  normal: 'font-normal',
-  medium: 'font-medium',
-  semibold: 'font-semibold',
-  bold: 'font-bold',
-};
-
-const aligns: Record<TextAlign, string> = {
-  left: 'text-left',
-  center: 'text-center',
-  right: 'text-right',
-};
+const textStyles = cva(["border"], {
+  variants: {
+    size: {
+      xs: 'text-xs',
+      sm: 'text-sm',
+      md: 'text-base',
+      lg: 'text-lg',
+      xl: 'text-xl',
+      '2xl': 'text-2xl',
+      '3xl': 'text-3xl',
+      '4xl': 'text-4xl',
+      '5xl': 'text-5xl',
+      '6xl': 'text-6xl',
+      '7xl': 'text-7xl',
+    },
+    weight: {
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
+    },
+    align: {
+      left: 'text-left',
+      center: 'text-center',
+      right: 'text-right',
+    }
+  },
+  defaultVariants: {
+    size: "md",
+    weight: "normal",
+    align: "left"
+  }
+})
 
 const TextDefaultElement = 'p';
 
@@ -55,13 +47,7 @@ export type UnstyledTextProps<
   T extends React.ElementType = typeof TextDefaultElement,
 > = PolymorphicPropsWithRef<{}, T>;
 
-export interface TextOwnProps {
-  size?: TextSize;
-  align?: TextAlign;
-  weight?: TextWeight;
-  className?: string;
-  onClick?(): void;
-}
+export type TextOwnProps = VariantProps<typeof textStyles>;
 
 export type TextProps<T extends React.ElementType = typeof TextDefaultElement> =
   PolymorphicPropsWithRef<TextOwnProps, T>;
@@ -98,12 +84,7 @@ export const Text: PolymorphicForwardRefExoticComponent<
   return (
     <UnstyledText
       ref={ref}
-      className={cs(
-        size && sizes[size],
-        weight && weights[weight],
-        align && aligns[align],
-        className,
-      )}
+      className={textStyles({ size, weight, align, className })}
       {...restProps}
     />
   );
