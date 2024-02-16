@@ -2,7 +2,5 @@
   "extends": "@tsconfig/vite-react/tsconfig.json",
   "compilerOptions": {
     "types": ["vitest/globals"]
-  },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  }
 }
