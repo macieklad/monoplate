@@ -13,7 +13,7 @@
   "prettier": "@medizzy/prettier-config",
   "eslintConfig": {
     "extends": [
-      "@medizzy/eslint-config/base"
+      "@acme/eslint-config/base"
     ],
     "root": true
   },

@@ -13,7 +13,8 @@ const config = {
     'prettier',
   ],
   plugins: [
-    "check-file"
+    "check-file",
+    "@typescript-eslint"
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

@@ -20,8 +20,5 @@
   },
   "devDependencies": {
     "@acme/lint-staged-config": "*"
-  },
-  "resolutions": {
-    "prettier": "^3.2.5"
   }
 }

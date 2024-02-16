@@ -19,7 +19,8 @@ module.exports = {
     'prettier',
   ],
   plugins: [
-    "check-file"
+    "check-file",
+    "@typescript-eslint"
   ],
   globals: {
     React: true,

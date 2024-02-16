@@ -9,7 +9,8 @@ const config = {
     'prettier',
   ],
   plugins: [
-    "check-file"
+    "check-file",
+    "@typescript-eslint"
   ],
   ignorePatterns,
   overrides: [...sharedOverrides],
