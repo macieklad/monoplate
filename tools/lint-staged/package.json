@@ -1,0 +1,16 @@
+{
+  "name": "@acme/lint-staged-config",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules"
+  }
+}

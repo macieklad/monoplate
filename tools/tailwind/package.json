@@ -1,0 +1,32 @@
+{
+  "name": "@acme/tailwind-config",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --write . --ignore-path ../../.gitignore",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@medizzy/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@medizzy/eslint-config/base"
+    ],
+    "root": true
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "*",
+    "@acme/prettier-config": "*",
+    "@acme/lint-staged-config": "*",
+    "@tsconfig/recommended": "^1.0.3",
+    "typescript": "^5.3.3"
+  }
+}

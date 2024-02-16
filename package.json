@@ -1,37 +1,28 @@
 {
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "dev:color": "FORCE_COLOR=1 yarn dev",
     "lint": "turbo run lint",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "test:e2e": "playwright test",
-    "setup:e2e": "npx playwright install",
+    "test": "turbo run test",
+    "test:e2e": "turbo run e2e",
     "clean": "turbo run clean && rm -rf node_modules",
-    "clean:lock": "yarn clean && rm -f yarn.lock yarn-error.log && yarn",
-    "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish",
+    "release": "turbo run build --filter='./packages/*' && changeset publish",
     "sync": "syncpack fix-mismatches",
     "check-sync": "syncpack list-mismatches",
     "check-manifest": "node scripts/validate-packages.js"
   },
   "devDependencies": {
-    "@acme/react-testing": "*",
-    "@acme/tsconfig": "*",
-    "eslint-config-acme": "*",
-    "@changesets/cli": "^2.22.0",
-    "@playwright/test": "^1.28.0",
-    "eslint": "^8.27.0",
-    "prettier": "^2.5.1",
-    "syncpack": "^8.3.9",
-    "turbo": "latest"
+    "@changesets/cli": "^2.27.1",
+    "@playwright/test": "^1.41.2",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "syncpack": "^12.3.0",
+    "turbo": "latest",
+    "@total-typescript/ts-reset": "^0.5.1"
   }
 }

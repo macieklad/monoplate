@@ -1,0 +1,5 @@
+{
+  "extends": "@tsconfig/vite-react/tsconfig.json",
+  "include": ["./src/**/*.{ts,tsx}"],
+  "exclude": ["node_modules"]
+}
