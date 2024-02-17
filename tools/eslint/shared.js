@@ -1,20 +1,9 @@
 const sharedRules = {
   'import/no-cycle': 'off',
+  'unicorn/filename-case': ['warn', { case: 'snakeCase'}],
   'func-style': ['error', 'declaration'],
-  camelcase: ['error', { allow: ['^unstable_'] }],
-  "check-file/filename-naming-convention": [
-    "error",
-    {
-      "**/*.{jsx,tsx}": "SNAKE_CASE",
-      "**/*.{js,ts}": "SNAKE_CASE"
-    }
-  ],
-  "check-file/folder-naming-convention": [
-    "error",
-    {
-      "src/**/": "SNAKE_CASE",
-    }
-  ]
+  'no-await-in-loop': 'off',
+  camelcase: ['error', { allow: ['^unstable_'] }]
 };
 
 const sharedReactRules = {

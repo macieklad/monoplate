@@ -9,5 +9,5 @@
     "skipLibCheck": true,
     "allowJs": true
   },
-  "include": ["./index.js"]
+  "include": ["index.d.ts", "index.js"]
 }

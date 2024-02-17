@@ -18,10 +18,6 @@ module.exports = {
     'eslint-config-turbo',
     'prettier',
   ],
-  plugins: [
-    "check-file",
-    "@typescript-eslint"
-  ],
   globals: {
     React: true,
     JSX: true,

@@ -12,10 +12,6 @@ const config = {
     'eslint-config-turbo',
     'prettier',
   ],
-  plugins: [
-    "check-file",
-    "@typescript-eslint"
-  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project,

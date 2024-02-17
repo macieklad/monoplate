@@ -48,9 +48,6 @@ importers:
       '@acme/vite-config':
         specifier: '*'
         version: link:../../tools/vite
-      '@tsconfig/vite-react':
-        specifier: ^3.0.0
-        version: 3.0.0
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -142,6 +139,9 @@ importers:
       '@tsconfig/recommended':
         specifier: ^1.0.3
         version: 1.0.3
+      '@tsconfig/vite-react':
+        specifier: ^3.0.0
+        version: 3.0.0
       '@vitejs/plugin-react':
         specifier: ^4.2.1
         version: 4.2.1(vite@5.1.3)
