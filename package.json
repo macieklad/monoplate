@@ -14,15 +14,22 @@
     "release": "turbo run build --filter='./packages/*' && changeset publish",
     "sync": "syncpack fix-mismatches",
     "check-sync": "syncpack list-mismatches",
-    "check-manifest": "node scripts/validate-packages.js"
+    "prepare": "is-ci || husky install"
   },
+  "prettier": "@acme/prettier-config",
   "devDependencies": {
+    "@acme/eslint-config": "*",
+    "@acme/prettier-config": "*",
+    "@acme/lint-staged-config": "*",
     "@changesets/cli": "^2.27.1",
     "@playwright/test": "^1.41.2",
     "eslint": "^8.56.0",
     "prettier": "^3.2.5",
     "syncpack": "^12.3.0",
     "turbo": "latest",
-    "@total-typescript/ts-reset": "^0.5.1"
+    "@total-typescript/ts-reset": "^0.5.1",
+    "husky": "^9.0.11",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^15.0.2"
   }
 }

@@ -1,0 +1,25 @@
+name: Setup node with package manager and cache
+
+description: Sets up node.js, pnpm and artifact cache, and installs deps in the current directory
+
+inputs:
+  node-version:
+    description: Node.js version to use
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
+    - name: Setup node with cache
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: pnpm
+
+    - name: Install Dependencies
+      shell: bash
+      run: pnpm install

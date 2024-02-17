@@ -1,8 +1,8 @@
-name: Run e2e tests
+name: Run unit tests
 
 on:
   pull_request:
-    types: [review_requested]
+    types: [opened, reopened, edited]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -14,16 +14,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 16.x
-        uses: actions/setup-node@v2
+      - name: Use Node.js v20.11.0 (LTS)
+        uses: ./.github/actions/setup-node-environment
         with:
-          node-version: 16.x
+          node-version: 20.11.0
 
-      - name: Install Dependencies
-        run: yarn
-
-      - name: Run e2e tests
-        run: yarn test:e2e
+      - name: Run tests
+        run: pnpm test
 
       # - name: Send a Slack notification if a publish happens
       #   if: steps.changesets.outputs.published == 'true'

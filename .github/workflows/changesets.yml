@@ -13,15 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js 16.x
-        uses: actions/setup-node@v2
+      - name: Use Node.js v20.11.0 (LTS)
+        uses: ./.github/actions/setup-node-environment
         with:
-          node-version: 16.x
-
-      - name: Install Dependencies
-        run: yarn
+          node-version: 20.11.0
 
       - name: Create Release Pull Request
         id: changesets
