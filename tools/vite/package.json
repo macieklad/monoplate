@@ -19,7 +19,7 @@
     "lint:fix": "eslint . --fix --max-warnings 0",
     "types": "tsc"
   },
-  "prettier": "@medizzy/prettier-config",
+  "prettier": "@acme/prettier-config",
   "eslintConfig": {
     "extends": [
       "@acme/eslint-config/base"

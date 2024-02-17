@@ -1,31 +1,19 @@
 const sharedRules = {
   'import/no-cycle': 'off',
-  'unicorn/filename-case': ['warn', { case: 'snakeCase'}],
+  'unicorn/filename-case': ['warn', { case: 'snakeCase' }],
   'func-style': ['error', 'declaration'],
   'no-await-in-loop': 'off',
-  camelcase: ['error', { allow: ['^unstable_'] }]
+  camelcase: ['error', { allow: ['^unstable_'] }],
 };
 
 const sharedReactRules = {
   'react-hooks/rules-of-hooks': 'error',
   'react-hooks/exhaustive-deps': 'error',
-  'react/function-component-definition': [
-    'warn',
-    {
-      namedComponents: 'function-expression',
-      unnamedComponents: 'function-expression',
-    },
-  ],
+  'react/function-component-definition': ['warn'],
   'react/no-unstable-nested-components': [
     'error',
     {
       allowAsProps: true,
-    },
-  ],
-  'react/jsx-pascal-case': [
-    'error',
-    {
-      ignore: ['MCQ'],
     },
   ],
 };

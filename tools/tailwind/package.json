@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --fix --max-warnings 0",
     "typecheck": "tsc --noEmit"
   },
-  "prettier": "@medizzy/prettier-config",
+  "prettier": "@acme/prettier-config",
   "eslintConfig": {
     "extends": [
       "@acme/eslint-config/base"

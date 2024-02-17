@@ -1,1 +1,1 @@
-export { default } from '@medizzy/lint-staged-config';
+export { default } from '@acme/lint-staged-config';

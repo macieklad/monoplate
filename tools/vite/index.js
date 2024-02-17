@@ -1,6 +1,6 @@
 import { mergeConfig } from 'vite';
-import react from '@vitejs/plugin-react'
-import dts from 'vite-plugin-dts'
+import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
 
 /**
  * @param {import("vite").UserConfigExport} config
@@ -13,15 +13,15 @@ export function reactPackageViteConfig(config = {}) {
       plugins: [
         dts(),
         react({
-          jsxRuntime: "classic"
-        })
+          jsxRuntime: 'classic',
+        }),
       ],
       build: {
         minify: false,
         lib: {
           entry: './src/index.tsx',
           fileName: 'index',
-          formats: ['es']
+          formats: ['es'],
         },
         rollupOptions: {
           external: ['react', 'react-dom'],
@@ -33,14 +33,14 @@ export function reactPackageViteConfig(config = {}) {
         },
       },
     },
-    config
+    config,
   ]);
 }
 
 /**
  * @param {import("vite").UserConfigExport | import("vite").UserConfigExport[]} config
  * @returns import("vite").UserConfigExport
-*/
+ */
 export function defineConfig(config) {
   if (!Array.isArray(config)) {
     return config;
@@ -50,7 +50,7 @@ export function defineConfig(config) {
    * @param {import("vite").ConfigEnv} envConfig
    */
   return async function configBuilder(envConfig) {
-    let finalConfig= {};
+    let finalConfig = {};
     for (const preset of config) {
       if (typeof preset === 'function') {
         finalConfig = mergeConfig(finalConfig, await preset(envConfig));
@@ -61,7 +61,7 @@ export function defineConfig(config) {
       }
     }
     return finalConfig;
-  }
+  };
 }
 
 /**
@@ -81,7 +81,7 @@ export function vitestConfig(config = {}) {
       },
     },
     {
-      test: config
-    }
-  ])
+      test: config,
+    },
+  ]);
 }

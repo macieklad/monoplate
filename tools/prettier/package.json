@@ -7,7 +7,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@medizzy/eslint-config/node"
+      "@acme/eslint-config/node"
     ],
     "root": true
   },

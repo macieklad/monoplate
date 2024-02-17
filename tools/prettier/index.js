@@ -8,7 +8,7 @@ const config = {
   singleQuote: true,
   tabWidth: 2,
   tailwindConfig: fileURLToPath(
-    new URL('../../tooling/tailwind/index.ts', import.meta.url),
+    new URL('../../tools/tailwind/index.ts', import.meta.url),
   ),
   tailwindFunctions: ['clsx', 'cn', 'cva', 'tv'],
   plugins: ['prettier-plugin-tailwindcss'],
