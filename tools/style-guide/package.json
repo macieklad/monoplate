@@ -1,0 +1,33 @@
+{
+  "name": "@acme/style-guide",
+  "version": "0.0.0",
+  "exports": {
+    "./eslint/browser": "./eslint/browser.js",
+    "./eslint/next": "./eslint/next.js",
+    "./eslint/node": "./eslint/node.js",
+    "./eslint/playwright": "./eslint/playwright.js",
+    "./eslint/react": "./eslint/react.js",
+    "./eslint/remix": "./eslint/remix.js",
+    "./eslint/server": "./eslint/server.js",
+    "./eslint/storybook": "./eslint/storybook.js",
+    "./prettier": "./prettier/index.js",
+    "./lint-staged": "./lint-staged/all.js",
+    "./lint-staged/eslint": "./lint-staged/eslint.js",
+    "./lint-staged/prettier": "./lint-staged/prettier.js"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "format": "prettier --write . --ignore-path ../../.gitignore",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix --max-warnings 0"
+  },
+  "dependencies": {
+    "@vercel/style-guide": "^5.2.0",
+    "eslint-config-turbo": "^1.12.4",
+    "micromatch": "^4.0.5"
+  },
+  "peerDependencies": {
+    "eslint": "~8.57.0",
+    "prettier": "~3.2.5"
+  }
+}

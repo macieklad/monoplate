@@ -1,11 +1,8 @@
-/// <reference types="vitest" />
-import type { UserConfigExport, UserConfig } from 'vite';
+import type { UserConfig } from 'vitest';
 
-export declare function reactPackageViteConfig(
-  config?: UserConfigExport,
-): UserConfigExport;
-// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents -- ts recursion
+export declare function reactPackageViteConfig(config?: UserConfig): UserConfig;
 export declare function defineConfig(
-  config: UserConfigExport[] | UserConfigExport,
-): UserConfigExport;
+  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents -- we want explicit types here even if they converge into any
+  config: UserConfig | UserConfig[],
+): UserConfig;
 export declare function vitestPreset(config: UserConfig['test']): UserConfig;

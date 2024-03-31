@@ -1,3 +1,3 @@
-import { reactPackageViteConfig } from '@acme/vite-config';
+import { reactPackageViteConfig } from '@acme/vite';
 
 export default reactPackageViteConfig();

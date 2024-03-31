@@ -1,17 +1,14 @@
 {
-  "name": "@acme/vite-config",
+  "name": "@acme/vite",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./tsconfig/*": "./tsconfig/*"
+  },
   "files": [
     "./tsconfig/*"
   ],
-  "exports": {
-    ".": {
-      "default": "./index.js",
-      "types": "./index.d.ts"
-    },
-    "./tsconfig/*": "./tsconfig/*"
-  },
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "format": "prettier --write . --ignore-path ../../.gitignore",
@@ -19,25 +16,17 @@
     "lint:fix": "eslint . --fix --max-warnings 0",
     "types": "tsc"
   },
-  "prettier": "@acme/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "@acme/eslint-config/base"
-    ],
-    "root": true
-  },
+  "prettier": "@acme/style-guide/prettier",
   "devDependencies": {
-    "@acme/eslint-config": "*",
-    "@acme/lint-staged-config": "*",
-    "@acme/prettier-config": "*",
+    "@acme/style-guide": "*",
     "@tsconfig/recommended": "^1.0.3",
+    "@tsconfig/vite-react": "^3.0.2",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/coverage-v8": "^1.2.2",
     "happy-dom": "^13.3.8",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.3",
+    "typescript": "~5.3.3",
+    "vite": "^5.2.7",
     "vite-plugin-dts": "^3.7.2",
-    "vitest": "^1.2.2",
-    "@tsconfig/vite-react": "^3.0.0"
+    "vitest": "^1.3.0"
   }
 }

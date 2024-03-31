@@ -11,7 +11,9 @@ export function reactPackageViteConfig(config = {}) {
     vitestConfig(),
     {
       plugins: [
-        dts(),
+        dts({
+          exclude: ['**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+        }),
         react({
           jsxRuntime: 'classic',
         }),
@@ -53,8 +55,10 @@ export function defineConfig(config) {
     let finalConfig = {};
     for (const preset of config) {
       if (typeof preset === 'function') {
+        // eslint-disable-next-line no-await-in-loop -- required that each config is merged in order
         finalConfig = mergeConfig(finalConfig, await preset(envConfig));
       } else if (preset instanceof Promise) {
+        // eslint-disable-next-line no-await-in-loop -- required that each config is merged in order
         finalConfig = mergeConfig(finalConfig, await preset);
       } else {
         finalConfig = mergeConfig(finalConfig, preset);

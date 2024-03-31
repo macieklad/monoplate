@@ -1,15 +1,29 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["MODE", "BASE_URL", "PROD", "DEV", "SSR"],
+  "globalDependencies": ["**/.env*"],
   "pipeline": {
     "build": {
-      "outputs": ["dist/**"],
+      "outputs": ["build/**", "dist/**", "storybook-static/**"],
+      "dependsOn": ["^build"],
+      "env": ["MODE"]
+    },
+    "test": {
+      "inputs": ["src/**.test.*"],
+      "outputs": ["coverage/**"],
       "dependsOn": ["^build"]
     },
+    "test:playwright": {
+      "inputs": ["e2e/**"],
+      "outputs": ["playwright-reports/**"]
+    },
     "lint": {
-      "outputs": []
+      "dependsOn": ["^build"]
     },
     "dev": {
-      "cache": false
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
     },
     "clean": {
       "cache": false

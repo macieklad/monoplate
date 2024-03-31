@@ -1,35 +1,32 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build --cache-dir=.turbo",
+    "changeset": "changeset",
+    "check-sync": "syncpack list-mismatches",
+    "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "dev:color": "FORCE_COLOR=1 yarn dev",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "test:e2e": "turbo run e2e",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
+    "lint": "turbo run lint --cache-dir=.turbo",
+    "prepare": "is-ci || husky install",
     "release": "turbo run build --filter='./packages/*' && changeset publish",
     "sync": "syncpack fix-mismatches",
-    "check-sync": "syncpack list-mismatches",
-    "prepare": "is-ci || husky install"
+    "test": "turbo run test --cache-dir=.turbo",
+    "version-packages": "changeset version"
   },
-  "prettier": "@acme/prettier-config",
+  "prettier": "@acme/style-guide/prettier",
   "devDependencies": {
-    "@acme/eslint-config": "*",
-    "@acme/prettier-config": "*",
-    "@acme/lint-staged-config": "*",
+    "@acme/style-guide": "workspace:*",
     "@changesets/cli": "^2.27.1",
     "@playwright/test": "^1.41.2",
-    "eslint": "^8.56.0",
-    "prettier": "^3.2.5",
-    "syncpack": "^12.3.0",
-    "turbo": "latest",
     "@total-typescript/ts-reset": "^0.5.1",
+    "eslint": "~8.57.0",
     "husky": "^9.0.11",
     "is-ci": "^3.0.1",
-    "lint-staged": "^15.0.2"
+    "lint-staged": "^15.0.2",
+    "prettier": "~3.2.5",
+    "syncpack": "^12.3.0",
+    "turbo": "latest"
   }
 }
