@@ -1,13 +1,9 @@
 {
+  "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "strict": true,
     "declaration": true,
-    "esModuleInterop": true,
-    "emitDeclarationOnly": true,
-    "skipLibCheck": true,
-    "allowJs": true
+    "outDir": "dist",
+    "rootDir": "src"
   },
-  "include": ["index.d.ts", "index.js"]
+  "include": ["./src/"]
 }

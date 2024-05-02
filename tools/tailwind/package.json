@@ -1,24 +1,34 @@
 {
-  "name": "@acme/tailwind-config",
-  "private": true,
-  "main": "index.ts",
-  "types": "index.ts",
-  "scripts": {
-    "clean": "rm -rf .turbo node_modules",
-    "format": "prettier --write . --ignore-path ../../.gitignore",
-    "lint": "eslint . --max-warnings 0",
-    "lint:fix": "eslint . --fix --max-warnings 0",
-    "typecheck": "tsc --noEmit"
+  "name": "@acme/tailwind",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acme/design-system.git",
+    "directory": "packages/tailwind"
   },
-  "prettier": "@acme/style-guide/prettier",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./preset": "./dist/preset.js",
+    "./config": "./dist/config.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "tsc -w",
+    "lint": "eslint \"src/**/*.ts*\""
+  },
   "dependencies": {
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
-    "@acme/style-guide": "workspace:*",
-    "@tsconfig/recommended": "^1.0.3",
-    "typescript": "~5.3.3"
+    "@tsconfig/node20": "^20.1.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "~5.4.5"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

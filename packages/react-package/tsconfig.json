@@ -1,4 +1,0 @@
-{
-  "extends": "@acme/vite/tsconfig/react-package.json",
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
-}
