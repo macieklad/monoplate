@@ -1,9 +1,11 @@
 # [WiP] Production ready javascript monorepo starter
 
-Monoplate is a ready to clone, opinionated template for starting a javascript monorepo. You can repurpose it for your own needs, but it focuses on giving you a good starting point for general application development.
+Monoplate is a ready to clone, opinionated template for starting a javascript monorepo. It comes with structures and presets for general application development. Go from cloning to coding in minutes. Best practices (hopefully) included!
 
 Powered by:
 
+- Node.js
+- Pnpm
 - Turborepo
 - Pnpm workspaces
 - Vite
@@ -18,9 +20,9 @@ Powered by:
 Out of the box, monoplate includes:
 
 - A plethora of presets for ESLint, Prettier, and Lint Staged
-- GitHub actions setup for testing, releasing, and deploying your projects, with goodies like caching and nodes setup
-- Ready to use package and application templates for starting your docs, component library or any other application (based on vite, tailwind and react)
-- Extensive syncpack configuration for keeping your dependencies in sync
+- GitHub actions setup for testing, releasing, and deploying your projects, with goodies like caching and environment setup
+- Ready to use package and application templates for starting your next docs, component library or any other application (based on vite, tailwind and react)
+- Extensive syncpack configuration for keeping your dependecies in check
 
 If you just want to start, go to the [getting started](#getting-started) section.
 
