@@ -69,6 +69,7 @@ module.exports = {
         'eslint',
         'prettier',
         'typescript',
+        'vite',
       ],
       packages: ['**'],
       range: '~',
