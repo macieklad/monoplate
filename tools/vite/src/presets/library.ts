@@ -27,6 +27,7 @@ export function library({
               'react',
               'react-dom',
               'react/jsx-runtime',
+              new RegExp(`^node:(?:\\/.*)*`),
               ...Object.keys(externalDependencies ?? []).map(
                 // Match peer dependency and all of its sub-paths
                 // i.e. @acme/package and @acme/package/react

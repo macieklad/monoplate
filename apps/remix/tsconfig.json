@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/remix/tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "@remix-run/node",
+      "vite/client",
+      "@remix-run/react/future/single-fetch.d.ts"
+    ]
+  }
+}

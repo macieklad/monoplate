@@ -15,7 +15,6 @@
     "test": "turbo run test --cache-dir=.turbo",
     "version-packages": "changeset version"
   },
-  "prettier": "@acme/style-guide/prettier",
   "devDependencies": {
     "@acme/style-guide": "workspace:*",
     "@changesets/cli": "^2.27.1",

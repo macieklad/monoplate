@@ -5,8 +5,6 @@ import { defineConfig } from 'vitest/config';
 import { library } from '@acme/vite/presets';
 import pkg from './package.json';
 
-console.log(pkg.peerDependencies);
-
 export default defineConfig({
   test: {
     globals: true,
@@ -24,6 +22,7 @@ export default defineConfig({
       name: '@acme/components',
       entry: {
         index: resolve(__dirname, 'src/index.tsx'),
+        tailwind: resolve(__dirname, 'src/tailwind.ts'),
       },
     },
   },
