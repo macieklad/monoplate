@@ -1,1 +1,1 @@
-module.exports = require('@acme/style-guide/lint-staged')();
+module.exports = require('@acme/style-guide/lint-staged/prettier')();

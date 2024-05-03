@@ -1,5 +1,5 @@
 {
-  "name": "@acme/react-package-template",
+  "name": "@acme/components",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -22,11 +22,19 @@
   "devDependencies": {
     "@acme/style-guide": "workspace:*",
     "@acme/vite": "workspace:*",
+    "@testing-library/jest-dom": "6.4.2",
+    "@testing-library/react": "^15.0.6",
+    "@testing-library/user-event": "^14.5.2",
     "@tsconfig/vite-react": "^2.0.1",
     "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.0",
+    "happy-dom": "^14.7.1",
     "typescript": "~5.4.5",
     "vite": "~5.2.11",
     "vitest": "^1.5.3"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@acme/tailwind": "workspace:*",
+    "react-aria-components": "^1.2.0"
+  }
 }

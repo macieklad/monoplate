@@ -5,9 +5,12 @@ import { defineConfig } from 'vitest/config';
 import { library } from '@acme/vite/presets';
 import pkg from './package.json';
 
+console.log(pkg.peerDependencies);
+
 export default defineConfig({
   test: {
     globals: true,
+    environment: 'happy-dom',
   },
   plugins: [
     library({
@@ -18,7 +21,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      name: '@acme/library',
+      name: '@acme/components',
       entry: {
         index: resolve(__dirname, 'src/index.tsx'),
       },
