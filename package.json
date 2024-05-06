@@ -2,11 +2,12 @@
   "private": true,
   "scripts": {
     "build": "turbo run build --cache-dir=.turbo",
+    "build:ecosystem": "turbo run build --filter='./tools/*' --filter='./packages/*' --cache-dir=.turbo",
     "changeset": "changeset",
     "check-sync": "syncpack list-mismatches",
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --no-cache --parallel --continue",
-    "dev:color": "FORCE_COLOR=1 yarn dev",
+    "dev:color": "FORCE_COLOR=1 pnpm dev",
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
     "lint": "turbo run lint --cache-dir=.turbo",
     "prepare": "is-ci || husky install",
