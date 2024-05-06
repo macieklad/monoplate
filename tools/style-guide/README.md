@@ -1,8 +1,6 @@
-# Style Guide
+# 💅 @acme/style-guide
 
-## Introduction
-
-This directory hosts the monorepo style guide, which includes configs for
+This package hosts the monorepo style guide, which includes configs for
 popular linting, formatting and maintenance tools.
 
 The following configs are available, and are designed to be used together.
@@ -35,6 +33,8 @@ Alternatively you can create a Prettier config file (i.e. `.prettierrc.js`) and 
 ```js
 export { default } from '@acme/style-guide/prettier';
 ```
+
+This is done by default in the monorepo root
 
 ## ESLint
 
@@ -189,7 +189,7 @@ module.exports = require('@acme/style-guide/lint-staged')({
 });
 ```
 
-Default ingore list includes `**/vite.config.ts` and `**/vitest.config.ts`.
+Default ignore list includes `**/vite.config.ts` and `**/vitest.config.ts`.
 
 > [!IMPORTANT]
 > When working in a monorepo make sure that every package and app has its own `.lintstagedrc.cjs` config file.

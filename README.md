@@ -33,6 +33,36 @@ Go from cloning to coding in minutes. Monoplate is an opinionated template for s
 
 ## Getting started
 
+Start by cloning the repository and installing dependencies:
+
+```bash
+gh repo clone macieklad/monoplate
+cd monoplate
+pnpm install
+```
+
+If you want to run any application, make sure every dependency is built first:
+
+```bash
+pnpm build:ecosystem
+```
+
+Then run your example app:
+
+```bash
+pnpm --filter remix dev
+```
+
+You can run whole monorepo in dev mode with `pnpm dev` command. It will start the `dev` script in every repository, but this is rarely what you want. You most likely want to run a single app dev script together with its dependencies:
+
+```bash
+p dev --filter remix...
+```
+
+The `...` syntax is taken directly from [turborepo configuration](https://turbo.build/repo/docs/core-concepts/monorepos/filtering#include-dependents-of-matched-workspaces)
+
+🙋 Using monorepos is hard. To develop projects using monoplate you will soon have to understand how to use the tools in the repo. See the [documentation](#documentation) when you are ready.
+
 ## Philosophy
 
 [Monorepos](https://monorepo.tools/) allow for simplified cross-project refactoring, unified versioning, and cohesive tooling strategies.
@@ -59,6 +89,23 @@ We have created monoplate to be the next layer in the puzzle, the kind of you se
 We also try to learn as much as you do, and look for best ways to solve monorepo issues, to provide modern configuration and build optimised apps. We are open to suggestions and PRs, and we hope that monoplate will be a good starting point for your next project.
 
 ## Documentation
+
+This section strives to guide you through everything available in the monoplate. We will overview most things here, but deeper knowledge is hidden in the individual package documentation. If you want to understand how everything comes together from the ground up, get familiar with the tools mentioned in the README introduction `Powered by` list, and then go through the repository packages and files in the following order:
+
+- root [`package.json`](./package.json)
+- [`pnpm-workspace.yaml`](./pnpm-workspace.yaml)
+- [`turbo.json`](./turbo.json)
+- [`syncpack.config.cjs`](./syncpack.config.cjs)
+- [`@acme/style-guide`](./tools/style-guide/README.md)
+- [`@acme/vite`](./tools/vite/README.md)
+- [`@acme/tailwind`](./tools/tailwind/README.md)
+- [`@acme/react-package-template`](./packages/react-package-template/README.md)
+- [`@acme/components`](./packages/components/README.md)
+- `@acme/any_app`
+
+## Thanks
+
+Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this project. Without his ideas and contributions to the project architecture, vite presets and linters, this project would be impossible.
 
 ## TODO
 
@@ -89,23 +136,21 @@ We also try to learn as much as you do, and look for best ways to solve monorepo
   - [ ] React package template
     - [ ] Docs
     - [x] Template
-- [ ] Tools
-  - [ ] Tailwind
+- [x] Tools
+  - [x] Tailwind
     - [x] Template
-    - [ ] Docs
-      - [ ] Usage
-      - [ ] Customizing library template
-  - [ ] Vite
-    - [ ] Docs
+    - [x] Docs
       - [x] Usage
-      - [ ] Customizing library preset
-      - [ ] Types
-      - [ ] Node externals
-    - [x] Template
+  - [x] Vite
+    - [x] Docs
+      - [x] Usage
+      - [x] Types
+      - [x] Node externals
+  - [x] Style guide
 - [ ] Documentation
   - [x] Included tool links
   - [ ] Configuration after cloning
   - [ ] Renaming example `acme` names
   - [ ] Getting started
   - [ ] Explanation for each used tool with best practices
-- [ ] Thanks
+- [x] Thanks
