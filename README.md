@@ -1,4 +1,4 @@
-# [WiP] Production ready javascript monorepo starter
+# [WiP] 🍽️ Production ready javascript monorepo starter
 
 Go from cloning to coding in minutes. Monoplate is an opinionated template for starting a javascript monorepo. Aimed at supporting application development, it comes preconfigured with an ecosystem of tools and best practices to get you started quickly.
 
@@ -16,6 +16,7 @@ Go from cloning to coding in minutes. Monoplate is an opinionated template for s
 - 🐶 [Husky](https://github.com/typicode/husky) - git hooks
 - 🔢 [Lint Staged](https://github.com/lint-staged/lint-staged) - precommit hooks
 - 🗄️ [Github actions](https://docs.github.com/en/actions) - CI/CD
+- 🥣 [Mise en place](https://mise.jdx.dev/) - Environment versioning (node, pnpm)
 
 **Out of the box, monoplate includes:**
 
