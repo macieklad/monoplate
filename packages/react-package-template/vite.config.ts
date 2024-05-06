@@ -13,7 +13,7 @@ export default defineConfig({
     library({
       // You can pass the dependencies from package.json
       // which will be marked as external and will not be bundled
-      externalDependencies: pkg.peerDependencies,
+      externalDependencies: pkg.dependencies,
     }),
   ],
   build: {

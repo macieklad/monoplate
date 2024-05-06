@@ -27,6 +27,6 @@ export function config({ presets, content, ...options }: Config) {
   return tailwindConfig({
     ...options,
     content: finalContent,
-    presets: [preset, ...(presets || [])],
+    presets: [preset, ...(presets ?? [])],
   });
 }
