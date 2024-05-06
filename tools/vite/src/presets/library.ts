@@ -27,7 +27,7 @@ export function library({
               'react',
               'react-dom',
               'react/jsx-runtime',
-              new RegExp(`^node:(?:\\/.*)*`),
+              /^node:(?:\/.*)*/,
               ...Object.keys(externalDependencies ?? []).map(
                 // Match peer dependency and all of its sub-paths
                 // i.e. @acme/package and @acme/package/react
@@ -40,16 +40,6 @@ export function library({
                 'react-dom': 'ReactDOM',
                 'react/jsx-runtime': 'react/jsx-runtime',
               },
-            },
-            onwarn(warning, warn) {
-              // Cleanup log for RSC, we do not use them - Module level directives cause errors when bundled, "use client"
-              if (
-                warning.code === 'MODULE_LEVEL_DIRECTIVE' &&
-                warning.message.includes('use client')
-              ) {
-                return;
-              }
-              warn(warning);
             },
           },
         },
