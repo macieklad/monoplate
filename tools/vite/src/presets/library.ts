@@ -45,8 +45,11 @@ export function library({
     nodeExternalsPlugin(externalsOptions),
     reactPlugin(reactOptions),
     dtsPlugin({
+      rollupTypes: true,
       ...dtsOptions,
       exclude: [
+        'dist',
+        'build',
         '**/*.test.{js,jsx,ts,tsx}',
         '**/*.{test,spec}.{js,jsx,ts,tsx}',
         'vite.config.ts',

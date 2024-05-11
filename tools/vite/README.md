@@ -19,7 +19,7 @@ Preset does the following things for you:
 
 - It externalises dependencies and native node imports using `rollup-plugin-node-externals`. Your libraries should not have React or react-dom in their bundles (unless you have a good reason for it).
 - `React`, `react-dom`, and `jsx-runtime` imports are [globalised](https://rollupjs.org/configuration-options/#output-globals) under `React`, `ReactDOM` and `react/jsx-runtime` objects/imports.
-- `vite-plugin-dts` is used to generate TypeScript definition files for your library. We are not rolling up types with `rollupTypes` as it generated errors for us in the past, if you want to experiment with it, add it to the preset and see if types in the dist are not producing ts errors.
+- `vite-plugin-dts` is used to generate TypeScript definition files for your library. We are also rolling up types with `rollupTypes` to produce a single dts file. You can safely add dist or vite config to your includes in tsconfig, preset will ignore them during build.
 - While outputting types, we are ignoring vite config and test files, so you can include them in your tsconfigs safely.
 - If dts diagnostics fail, we will throw an error and stop the build process.
 
