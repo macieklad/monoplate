@@ -154,4 +154,5 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
   - [ ] Renaming example `acme` names
   - [ ] Getting started
   - [ ] Explanation for each used tool with best practices
+  - [ ] Hoisting configuration and why it matters to build packages (workspace:\* dependency resolving and externalisation)
 - [x] Thanks

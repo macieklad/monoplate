@@ -1,13 +1,22 @@
 import type { PluginOption } from 'vite';
-import dts from 'vite-plugin-dts';
-import react from '@vitejs/plugin-react';
+import dtsPlugin, { type PluginOptions as DtsOptions } from 'vite-plugin-dts';
+import reactPlugin, {
+  type Options as ReactOptions,
+} from '@vitejs/plugin-react';
+import nodeExternalsPlugin, {
+  type ExternalsOptions,
+} from 'rollup-plugin-node-externals';
 
 interface LibraryPresetOptions {
-  externalDependencies?: Record<string, string>;
+  externals?: ExternalsOptions;
+  react?: ReactOptions;
+  dts?: DtsOptions;
 }
 
 export function library({
-  externalDependencies,
+  externals: externalsOptions,
+  react: reactOptions,
+  dts: dtsOptions,
 }: LibraryPresetOptions = {}): PluginOption[] {
   return [
     {
@@ -19,21 +28,9 @@ export function library({
           sourcemap: true,
           lib: {
             entry: {},
-            fileName: '[name]',
             formats: ['es'],
           },
           rollupOptions: {
-            external: [
-              'react',
-              'react-dom',
-              'react/jsx-runtime',
-              /^node:(?:\/.*)*/,
-              ...Object.keys(externalDependencies ?? []).map(
-                // Match peer dependency and all of its sub-paths
-                // i.e. @acme/package and @acme/package/react
-                (dep) => new RegExp(`^${dep}(?:\\/.*)*`),
-              ),
-            ],
             output: {
               globals: {
                 react: 'React',
@@ -45,7 +42,26 @@ export function library({
         },
       }),
     },
-    react(),
-    dts({ rollupTypes: true }),
+    nodeExternalsPlugin(externalsOptions),
+    reactPlugin(reactOptions),
+    dtsPlugin({
+      ...dtsOptions,
+      exclude: [
+        '**/*.test.{js,jsx,ts,tsx}',
+        '**/*.{test,spec}.{js,jsx,ts,tsx}',
+        'vite.config.ts',
+        ...(typeof dtsOptions?.exclude === 'string'
+          ? [dtsOptions.exclude]
+          : dtsOptions?.exclude ?? []),
+      ],
+      async afterDiagnostic(diagnostics) {
+        await dtsOptions?.afterDiagnostic?.(diagnostics);
+        if (diagnostics.length) {
+          throw new Error(
+            'Failed to generate declaration files, there was some typescript issues, see logs above.',
+          );
+        }
+      },
+    }),
   ];
 }

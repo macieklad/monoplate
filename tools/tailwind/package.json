@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/acme/design-system.git",
+    "url": "https://github.com/acme/monorepo.git",
     "directory": "packages/tailwind"
   },
   "type": "module",

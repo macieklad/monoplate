@@ -24,6 +24,8 @@
   "dependencies": {
     "@vercel/style-guide": "^6.0.0",
     "eslint-config-turbo": "^1.12.4",
+    "eslint-plugin-astro": "^1.1.2",
+    "eslint-plugin-storybook": "^0.8.0",
     "micromatch": "^4.0.5"
   },
   "peerDependencies": {

@@ -3,20 +3,13 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
 import { library } from '@acme/vite/presets';
-import pkg from './package.json';
 
 export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
   },
-  plugins: [
-    library({
-      // You can pass the dependencies from package.json
-      // which will be marked as external and will not be bundled
-      externalDependencies: pkg.peerDependencies,
-    }),
-  ],
+  plugins: [library()],
   build: {
     lib: {
       name: '@acme/components',

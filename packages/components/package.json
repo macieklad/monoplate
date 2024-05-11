@@ -16,9 +16,10 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
-  "prettier": "@acme/style-guide/prettier",
   "dependencies": {
-    "react": "^18.3.1"
+    "@acme/tailwind": "workspace:*",
+    "react": "^18.3.1",
+    "react-aria-components": "^1.2.0"
   },
   "devDependencies": {
     "@acme/style-guide": "workspace:*",
@@ -33,9 +34,5 @@
     "typescript": "~5.4.5",
     "vite": "~5.2.11",
     "vitest": "^1.5.3"
-  },
-  "peerDependencies": {
-    "@acme/tailwind": "workspace:*",
-    "react-aria-components": "^1.2.0"
   }
 }

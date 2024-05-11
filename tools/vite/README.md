@@ -17,56 +17,30 @@ to generate TypeScript definition files.
 
 Preset does the following things for you:
 
-- It externalises (doesn't process imports and leaves them as is in your files) common dependencies from your bundle so they won't be bundled by default. Your libraries should not have React or react-dom in their bundles (unless you have a good reason for it).
-- It will also not process any node native imports **but they must use node:module** imports i.e. `import { resolve } from 'node:path'` instead of `import { resolve } from 'path'`. There is an eslint rule that will catch this for you in the monorepo.
+- It externalises dependencies and native node imports using `rollup-plugin-node-externals`. Your libraries should not have React or react-dom in their bundles (unless you have a good reason for it).
 - `React`, `react-dom`, and `jsx-runtime` imports are [globalised](https://rollupjs.org/configuration-options/#output-globals) under `React`, `ReactDOM` and `react/jsx-runtime` objects/imports.
-- While outputting types, we will rollup them into a single types file. This helps with the overall type performance
-- You are able to pass the external dependencies map to the preset, which will mark them as external and they will not be bundled too. This is useful as you can import your `package.json` directly and pass whole `peerDependencies` object to the preset. It also ensures that any child exports are not bundled too, i.e. `import x from 'externalDep/child'`.
-
-```ts
-import { resolve } from 'node:path';
-import { defineConfig } from 'vite';
-import { library } from '@acme/vite/presets';
-import pkg from './package.json';
-
-export default defineConfig({
-  plugins: [
-    library({
-      // You can pass the dependencies from package.json
-      // which will be marked as external and will not be bundled
-      externalDependencies: pkg.peerDependencies,
-    }),
-  ],
-  build: {
-    lib: {
-      name: '@acme/library',
-      entry: {
-        index: resolve(__dirname, 'src/index.ts'),
-        react: resolve(__dirname, 'src/react/index.ts'),
-        methods: resolve(__dirname, 'src/methods/index.ts'),
-      },
-    },
-  },
-});
-```
+- `vite-plugin-dts` is used to generate TypeScript definition files for your library. We are not rolling up types with `rollupTypes` as it generated errors for us in the past, if you want to experiment with it, add it to the preset and see if types in the dist are not producing ts errors.
+- While outputting types, we are ignoring vite config and test files, so you can include them in your tsconfigs safely.
+- If dts diagnostics fail, we will throw an error and stop the build process.
 
 **Options**
+All options come from the plugins that are used in the preset. You can pass them as an object to the preset and they will be merged accordingly.
 
 ```ts
+import { type PluginOptions as DtsOptions } from 'vite-plugin-dts';
+import { type Options as ReactOptions } from '@vitejs/plugin-react';
+import { type ExternalsOptions } from 'rollup-plugin-node-externals';
+
 interface LibraryPresetOptions {
-  externalDependencies?: Record<string, string>;
+  externals?: ExternalsOptions;
+  react?: ReactOptions;
+  dts?: DtsOptions;
 }
 ```
 
-#### Understanding externalisation in the library preset
-
-Tldr:
+#### Tldr; Should you use this preset?
 
 - If you want to build publishable browser/react library, use the library preset.
-- If you want to build a pure node library, use `tsc` (possibly in watch mode) to transpile your packages
+- If you want to just transpile your code, use `tsc` (possibly in watch mode)
 
-Vite bundles your code in library mode as if it was something that will be consumed by a browser. It has a separate `--ssr` mode that you can use to bundle your code for server-side rendering. Therefore, all modules that you import will be processed by vite, which results in problems like the double bundling mentioned above.
-
-**You still want to process dependencies when preparing for the browser usage**, but in the case of monorepo, your final bundle will most likely be created by the Vite instance that builds your app which consumes your libraries. We want to leave final optimisations to the app bundler, our goal is to go from typescript -> javascript while still being able to extend our build process and be better prepared for publishing to code registries.
-
-If you just want to use typescript in your project, or build a pure node library, our recommendation is to go with pure `tsc` setup (that's how we build this package).
+Vite bundles your code in library mode as if it was something that will be consumed by a browser. It has a separate `--ssr` mode for server usages. Bundling is complicated, and if you don't care about inlining dependencies, tree shaking, and other optimisations, because for example you are creating a node library, don't use any heavy tool for that, you don't need it.
