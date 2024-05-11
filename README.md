@@ -1,4 +1,9 @@
-# [WiP] 🍽️ Production ready javascript monorepo starter
+<p align="center">
+    <picture>
+      <img src="./.github/monoplate.png" height="128" alt="Monoplate logo, letter M centered in a square with purple-orange gradient border" />
+    </picture>
+    <h1 align="center">Monoplate</h1>
+</p>
 
 Go from cloning to coding in minutes. Monoplate is an opinionated template for starting a javascript monorepo. Aimed at supporting application development, it comes preconfigured with an ecosystem of tools and best practices to get you started quickly.
 
