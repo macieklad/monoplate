@@ -2,6 +2,7 @@
   "name": "@acme/style-guide",
   "version": "0.0.0",
   "exports": {
+    "./eslint/astro": "./eslint/astro.js",
     "./eslint/browser": "./eslint/browser.js",
     "./eslint/next": "./eslint/next.js",
     "./eslint/node": "./eslint/node.js",

@@ -6,7 +6,9 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "format": "prettier --write . --ignore-path ../../.gitignore",
+    "lint": "eslint ./app --max-warnings 0",
+    "lint:fix": "eslint ./app --max-warnings 0 --fix",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@acme/components": "workspace:*",
+    "@acme/style-guide": "workspace:*",
     "@acme/tailwind": "workspace:*",
     "@remix-run/dev": "^2.9.1",
     "@tsconfig/remix": "^2.0.5",

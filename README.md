@@ -124,8 +124,8 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
     - [ ] Template
   - [ ] Astro
     - [ ] Docs
-    - [ ] Template
-    - [ ] Starlight docs
+    - [x] Template
+    - [x] Starlight docs
   - [ ] Storybook
     - [ ] Docs
     - [ ] Template
