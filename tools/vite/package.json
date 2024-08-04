@@ -16,11 +16,11 @@
   "devDependencies": {
     "@acme/style-guide": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
-    "@vitejs/plugin-react": "^4.2.1",
-    "happy-dom": "^14.7.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "happy-dom": "^14.12.3",
     "rollup-plugin-node-externals": "^7.1.2",
-    "typescript": "~5.4.5",
-    "vite": "~5.2.11",
+    "typescript": "~5.5.4",
+    "vite": "~5.2.13",
     "vite-plugin-dts": "^3.9.1"
   }
 }

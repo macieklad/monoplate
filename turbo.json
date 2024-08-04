@@ -2,7 +2,8 @@
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["MODE", "BASE_URL", "PROD", "DEV", "SSR"],
   "globalDependencies": ["**/.env*"],
-  "pipeline": {
+  "ui": "tui",
+  "tasks": {
     "build": {
       "outputs": ["build/**", "dist/**", "storybook-static/**"],
       "dependsOn": ["^build"],

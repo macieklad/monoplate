@@ -1,4 +1,5 @@
 {
+  "name": "monoplate",
   "private": true,
   "scripts": {
     "build": "turbo run build --cache-dir=.turbo",
@@ -18,16 +19,17 @@
   },
   "devDependencies": {
     "@acme/style-guide": "workspace:*",
-    "@changesets/cli": "^2.27.1",
-    "@playwright/test": "^1.41.2",
+    "@changesets/cli": "^2.27.7",
+    "@playwright/test": "^1.45.3",
     "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.14.14",
     "eslint": "~8.57.0",
-    "husky": "^9.0.11",
+    "husky": "^9.1.4",
     "is-ci": "^3.0.1",
-    "lint-staged": "^15.0.2",
+    "lint-staged": "^15.2.8",
     "prettier": "~3.2.5",
-    "syncpack": "^12.3.0",
-    "turbo": "latest"
-  }
+    "syncpack": "^12.4.0",
+    "turbo": "^2.0.11"
+  },
+  "packageManager": "pnpm@9.6.0"
 }

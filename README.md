@@ -115,13 +115,15 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
 
 ## TODO
 
+### V1
+
 - [ ] Application templates
   - [ ] Remix
     - [ ] Docs
     - [x] Template
   - [ ] Next.js
     - [ ] Docs
-    - [ ] Template
+    - [x] Template
   - [ ] Astro
     - [ ] Docs
     - [x] Template
@@ -153,6 +155,12 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
       - [x] Types
       - [x] Node externals
   - [x] Style guide
+  - [ ] CI/CD Pipeline
+    - Testing
+    - Linting
+    - Caching
+    - Versioning
+    - Docs
 - [ ] Documentation
   - [x] Included tool links
   - [ ] Configuration after cloning
@@ -161,3 +169,7 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
   - [ ] Explanation for each used tool with best practices
   - [ ] Hoisting configuration and why it matters to build packages (workspace:\* dependency resolving and externalisation)
 - [x] Thanks
+
+V2
+
+- [ ] Module federation
