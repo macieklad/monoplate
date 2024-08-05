@@ -130,7 +130,7 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
     - [x] Starlight docs
   - [ ] Storybook
     - [ ] Docs
-    - [ ] Template
+    - [x] Template
     - [ ] Used plugins
   - [ ] AdonisJS API
     - [ ] Docs
