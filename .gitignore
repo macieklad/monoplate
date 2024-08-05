@@ -14,3 +14,5 @@ storybook-static/
 coverage
 playwright-report
 .idea
+
+*storybook.log

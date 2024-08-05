@@ -1,0 +1,41 @@
+{
+  "name": "storybook-docs",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "storybook build",
+    "dev": "storybook dev -p 6006",
+    "lint": "eslint ./stories --max-warnings 0",
+    "lint:fix": "eslint ./stories --max-warnings 0 --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@acme/components": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@acme/style-guide": "workspace:*",
+    "@acme/tailwind": "workspace:*",
+    "@chromatic-com/storybook": "^1.6.1",
+    "@storybook/addon-a11y": "^8.2.7",
+    "@storybook/addon-designs": "^8.0.3",
+    "@storybook/addon-essentials": "^8.2.7",
+    "@storybook/addon-interactions": "^8.2.7",
+    "@storybook/addon-links": "^8.2.7",
+    "@storybook/addon-onboarding": "^8.2.7",
+    "@storybook/addon-storysource": "^8.2.7",
+    "@storybook/addon-themes": "^8.2.7",
+    "@storybook/blocks": "^8.2.7",
+    "@storybook/react": "^8.2.7",
+    "@storybook/react-vite": "^8.2.7",
+    "@storybook/test": "^8.2.7",
+    "@types/react": "^18.3.3",
+    "prop-types": "^15.8.1",
+    "storybook": "^8.2.7"
+  }
+}
