@@ -2,8 +2,8 @@
   "name": "monoplate",
   "private": true,
   "scripts": {
-    "build": "turbo run build --cache-dir=.turbo",
-    "build:ecosystem": "turbo run build --filter='./tools/*' --filter='./packages/*' --cache-dir=.turbo",
+    "build": "turbo run build",
+    "build:ecosystem": "turbo run build --filter='./tools/*' --filter='./packages/*'",
     "changeset": "changeset",
     "check-sync": "syncpack list-mismatches",
     "clean": "turbo run clean && rm -rf node_modules",
@@ -19,17 +19,17 @@
   },
   "devDependencies": {
     "@acme/style-guide": "workspace:*",
-    "@changesets/cli": "^2.27.7",
-    "@playwright/test": "^1.45.3",
+    "@changesets/cli": "^2.27.9",
+    "@playwright/test": "^1.48.1",
     "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "^20.14.14",
-    "eslint": "~8.57.0",
-    "husky": "^9.1.4",
+    "@types/node": "^22.7.7",
+    "eslint": "~8.57.1",
+    "husky": "^9.1.6",
     "is-ci": "^3.0.1",
-    "lint-staged": "^15.2.8",
-    "prettier": "~3.2.5",
+    "lint-staged": "^15.2.10",
+    "prettier": "~3.3.3",
     "syncpack": "^12.4.0",
-    "turbo": "^2.0.11"
+    "turbo": "^2.2.1"
   },
-  "packageManager": "pnpm@9.6.0"
+  "packageManager": "pnpm@9.12.2"
 }
