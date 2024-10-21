@@ -8,11 +8,11 @@ inputs:
     required: true
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
-    - uses: pnpm/action-setup@v2
+    - uses: pnpm/action-setup@v4
       with:
-        version: 8
+        version: 9
 
     - name: Setup node with cache
       uses: actions/setup-node@v4

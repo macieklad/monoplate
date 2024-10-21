@@ -111,7 +111,7 @@ This section strives to guide you through everything available in the monoplate.
 
 ## Thanks
 
-Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this project. Without his ideas and contributions to the project architecture, vite presets and linters, this project would be impossible.
+Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this project. Without his ideas and contributions to the project architecture, vite presets and linters, we would not have created it.
 
 ## TODO
 
@@ -132,7 +132,7 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
     - [ ] Docs
     - [x] Template
     - [ ] Used plugins
-  - [ ] AdonisJS API
+  - [ ] Nitro API
     - [ ] Docs
     - [ ] Template
     - [ ] OpenAPI generation
@@ -170,6 +170,11 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
   - [ ] Hoisting configuration and why it matters to build packages (workspace:\* dependency resolving and externalisation)
 - [x] Thanks
 
-V2
+V2 Ideas
 
+- [ ] E2E test setup
+- [ ] Startup tests for each template
 - [ ] Module federation
+- [ ] ESLint 9 / Drop vercel style guide(?)
+- [ ] Mobile app setup
+- [ ] Verify if module.exports and .cjs are needed with Node 23 release

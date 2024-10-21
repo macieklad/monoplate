@@ -14,10 +14,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Use Node.js v20.11.0 (LTS)
+      - name: Use Node.js v22.10.0 (LTS)
         uses: ./.github/actions/setup-node-environment
         with:
-          node-version: 20.11.0
+          node-version: 22.10.0
+
+      - name: Cache for Turborepo
+        uses: rharkor/caching-for-turbo@v1.5
 
       - name: Lint projects
         run: pnpm lint
