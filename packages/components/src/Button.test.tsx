@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { Button } from './Button';
 import '@testing-library/jest-dom/vitest';
+import { render, screen } from '@testing-library/react';
+import { default as userEvent } from '@testing-library/user-event';
 import { useState } from 'react';
+import { Button } from './Button';
 
 function Clicker() {
   const [isClicked, setIsClicked] = useState(false);
