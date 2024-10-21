@@ -1,0 +1,15 @@
+{
+  "name": "trigger-workflow-for-changeset-release",
+  "type": "module",
+  "module": "index.mjs",
+  "scripts": {
+    "build": "ncc build index.mjs -o bin"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "@vercel/ncc": "^0.38.2",
+    "zod": "^3.23.8"
+  },
+  "packageManager": "pnpm@9.12.2"
+}

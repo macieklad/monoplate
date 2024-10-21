@@ -1,0 +1,40 @@
+name: 'Trigger workflow for released packages'
+description: 'Triggers specified workflow for packages released by changesets. Released packages are passed as a JSON array containing objects with package name and version.'
+inputs:
+  github_token:
+    description: 'GitHub Token used for authentication, make sure it has access to trigger actions in the repository where your target workflow resides'
+    required: true
+  released_packages:
+    description: 'JSON array containing objects with package name and version'
+    required: true
+  workflow:
+    description: 'Workflow id that will be triggered'
+    required: true
+  package:
+    description: 'Package name that will cause the workflow to be triggered after the package was released'
+    required: true
+  owner:
+    description: 'Owner of the repo where workflow resides, defaults to the current repository'
+    required: false
+  repo:
+    description: 'Repository where workflow resides, defaults to the current repository'
+    required: false
+  ref:
+    description: 'Repository ref that will be used to trigger the workflow, defaults to the master'
+    required: false
+  workflow_inputs:
+    description: 'Workflow inputs that will be passed to the triggered workflow, encoded as JSON object'
+    required: false
+  ignored_versions:
+    description: 'JS Regexp, if it matches the released package version, the workflow will not be triggered'
+    required: false
+
+outputs:
+  workflow_triggered:
+    description: 'Indicates if workflow was triggered'
+  package_version:
+    description: 'Package version that was detected'
+
+runs:
+  using: 'node20'
+  main: 'bin/index.mjs'
