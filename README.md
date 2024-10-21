@@ -134,9 +134,7 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
     - [ ] Used plugins
   - [ ] Nitro API
     - [ ] Docs
-    - [ ] Template
-    - [ ] OpenAPI generation
-    - [ ] Spec generation
+    - [x] Template
 - [ ] Package templates
   - [ ] Component library
     - [ ] Docs
@@ -156,15 +154,15 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
       - [x] Node externals
   - [x] Style guide
   - [ ] CI/CD Pipeline
-    - Testing
-    - Linting
-    - Caching
-    - Versioning
-    - Docs
+    - [x] Testing
+    - [x] Linting
+    - [x] Caching
+    - [x] Versioning
+    - [ ] Docs
 - [ ] Documentation
   - [x] Included tool links
   - [ ] Configuration after cloning
-  - [ ] Renaming example `acme` names
+  - [x] Renaming example `acme` names
   - [ ] Getting started
   - [ ] Explanation for each used tool with best practices
   - [ ] Hoisting configuration and why it matters to build packages (workspace:\* dependency resolving and externalisation)
