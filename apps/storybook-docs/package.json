@@ -10,8 +10,7 @@
     "build": "storybook build",
     "dev": "storybook dev -p 6006",
     "lint": "eslint ./stories --max-warnings 0",
-    "lint:fix": "eslint ./stories --max-warnings 0 --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "eslint ./stories --max-warnings 0 --fix"
   },
   "dependencies": {
     "@acme/components": "workspace:*",
