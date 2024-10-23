@@ -1,8 +1,11 @@
 name: Ensure package structure and dependencies are correct
 
 on:
-  pull_request:
-    types: [opened, reopened, edited]
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+      - '!master'
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 

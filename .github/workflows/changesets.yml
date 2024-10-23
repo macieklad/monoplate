@@ -20,8 +20,10 @@ jobs:
         with:
           node-version: 22.10.0
 
-      - name: Create Release Pull Request
+      - name: Tag or publish packages
         id: changesets
         uses: changesets/action@v1
+        with:
+          publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
