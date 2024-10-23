@@ -10,11 +10,13 @@
     "dev": "turbo run dev --no-cache --parallel --continue",
     "dev:color": "FORCE_COLOR=1 pnpm dev",
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
-    "lint": "turbo run lint --cache-dir=.turbo",
+    "lint": "turbo run lint",
+    "lint:affected": "pnpm lint -- --affected",
     "prepare": "is-ci || husky install",
     "release": "pnpm build:ecosystem && changeset publish",
     "sync": "syncpack fix-mismatches",
     "test": "turbo run test",
+    "test:affected": "pnpm test -- --affected",
     "version-packages": "changeset version"
   },
   "devDependencies": {
