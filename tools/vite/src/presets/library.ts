@@ -20,7 +20,7 @@ export function library({
 }: LibraryPresetOptions = {}): PluginOption[] {
   return [
     {
-      name: 'acme-library-preset',
+      name: 'acme-library-presets',
       enforce: 'pre',
       config: () => ({
         build: {
@@ -55,7 +55,7 @@ export function library({
         'vite.config.ts',
         ...(typeof dtsOptions?.exclude === 'string'
           ? [dtsOptions.exclude]
-          : dtsOptions?.exclude ?? []),
+          : (dtsOptions?.exclude ?? [])),
       ],
       async afterDiagnostic(diagnostics) {
         await dtsOptions?.afterDiagnostic?.(diagnostics);
