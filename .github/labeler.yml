@@ -1,4 +1,4 @@
 ecosystem:
   - changed-files:
-      - any-globs-to-any-file: ['*', 'packages/**', 'tools/**']
+      - any-glob-to-any-file: ['*', 'packages/**', 'tools/**']
       - all-globs-to-all-files: '!pnpm-lock.yaml'
