@@ -112,7 +112,6 @@ This section strives to guide you through concepts available in Monoplate. We wi
 - [`@acme/react-package-template`](./packages/react-package-template/README.md)
 - [`@acme/components`](./packages/components/README.md)
 - `@acme/any_app`
--
 
 ### Project management
 
