@@ -24,6 +24,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          # pnpm release - in real repo
+          publish: echo "released!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
