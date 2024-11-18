@@ -122,23 +122,46 @@ Pnpm installs dependencies of all packages in a single place - root directory `n
 
 Pnpm and turbo don't concern themselves with this issue. This is where syncpack comes in. Syncpack is a tool that you provide with a versioning strategy for your packages, and it will ensure that everyone follows it. In Monoplate, we use a simple strategy - the newest version of dependency wins, and syncpack will bump all packages to the newest version of the dependency. This isn't always feasible, so we provide a big `syncpack.config` for you, where we fix some common versioning issues with javascript ecosystem.
 
-❓You may ask, why not a single tool that does everything? You can! Try `nx` if you want to go with this solution. What we like about our setup is that packages are totally independent. You can pull a folder out of this monorepo, replace `workspace:*` dependencies in `package.json` with precise semver versions, run pnpm install, and everything will work as if the monorepo never existed - besides CI of course.
+❓You may ask - why not a single tool that does everything? You can! Try `nx` if you want to go with this solution. What we like about our setup is that packages are totally independent. You can pull a folder out of this monorepo, replace `workspace:*` dependencies in `package.json` with precise semver versions, run pnpm install, and everything will work as if the monorepo never existed - besides CI of course.
 
 ### Defining dependencies between packages
 
 Turbo operates on tasks, but you configure your package dependencies as you would install any normal package from npm. If you want to depend on a project in the repository, you use its `name` field in the `package.json` and version it with `workspace:*`. You can also use a specific version, but it will be sourced directly from your registry, not from the monorepo code itself. Publishing to registry is set up with `release` command in the `package.json`.
 
-### Scripts glossary
-
 ### Code quality
 
-### Build toolchain and best practices
+To maintain consistent code style and its quality, we use ESLint and Prettier. Additionally, `lint-staged` is used to run prettier formatting before each commit. Because `typescript-eslint` is used, linter is run only in the CI, otherwise code would take a lot of time to commit. `style-guide` package in the `tools` directory gathers extends vercel `style-guide` and provides common ESLint setup for all packages. In app packages, you will see that linting setup simply extends the base configuration and eventually adds some specific rules like this:
+
+```js
+module.exports = {
+  extends: [require.resolve('@acme/style-guide/eslint/react')],
+};
+```
+
+The added benefit of using a separate configuration package is that you can share it even outside the monorepo. It is published and versioned like any other project. This is especially helpful when you have older projects that won't be migrated to the monorepo, but you want to keep the same linting rules across them.
 
 ### CI/CD
 
-### Component library
+Actions that run tests, lint files and ensure dependency synchronisation are run on every commit. Both dependency installs and task results are heavily cached with github actions and turborepo caches, so even with large number of projects, you usually won't see runs that take longer than 2-3 minutes (extended by the time it takes to run your tests of course). We depend heavily on changesets to version our, packages. To leverage this setup, there is a `trigger-workflow-for-changeset-release` action that can be used to run a workflow when a package is released. With private package versioning enabled in the `.changeset/config.json`, apps will be processed by the changesets action (albeit without publishing to package registry) so you can create separate workflows for things like app deployment, and trigger them automatically when a package is released like this:
 
-### Default applications
+```yaml
+- name: Deploy app if it was released
+  uses: ./.github/actions/trigger-workflow-for-changesets-release@master
+  if: ${{ steps.changesets.outputs.published }}
+  with:
+    released_packages: ${{ steps.changesets.outputs.publishedPackages }}
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    package: package-name
+    workflow: deploy-app.yaml
+    workflow_inputs: |
+      {
+        "branch": "refs/tags/{package}@{version}"
+      }
+```
+
+If you use hosting providers that support monorepos out the box, this action may be unnecessary, but if you have a custom setup, or you need to run other workflows on package release, this is a simple way to achieve that.
+
+### Component library
 
 ## Thanks
 
@@ -187,8 +210,9 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
   - [ ] CI/CD Pipeline
     - [x] Testing
     - [x] Linting
-    - [x] Cachingcccc
+    - [x] Caching
     - [x] Versioning
+    - [x] Labeling
     - [ ] Docs
 - [ ] Documentation
   - [x] Included tool links
@@ -196,7 +220,7 @@ Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this pr
   - [x] Renaming example `acme` names
   - [x] Getting started
   - [ ] Explanation for each used tool with best practices
-  - [ ] Hoisting configuration and why it matters to build packages (workspace:\* dependency resolving and externalisation)
+  - [x] Hoisting configuration and why it matters to build packages (workspace:\* dependency resolving and externalisation)
 - [x] Thanks
 
 V2 Ideas
