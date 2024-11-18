@@ -11,12 +11,12 @@
     "dev:color": "FORCE_COLOR=1 pnpm dev",
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
     "lint": "turbo run lint",
-    "lint:affected": "pnpm lint -- --affected",
+    "lint:affected": "turbo run lint --affected",
     "prepare": "is-ci || husky install",
     "release": "pnpm build:ecosystem && changeset publish",
     "sync": "syncpack fix-mismatches",
     "test": "turbo run test",
-    "test:affected": "pnpm test -- --affected",
+    "test:affected": "turbo run test --affected",
     "version-packages": "changeset version"
   },
   "devDependencies": {
