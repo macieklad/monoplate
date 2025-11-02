@@ -5,7 +5,6 @@
     "build": "turbo run build",
     "build:ecosystem": "turbo run build --filter='./tools/*' --filter='./packages/*'",
     "changeset": "changeset",
-    "check-sync": "syncpack list-mismatches",
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "dev:color": "FORCE_COLOR=1 pnpm dev",
@@ -15,23 +14,37 @@
     "prepare": "is-ci || husky install",
     "release": "pnpm build:ecosystem && changeset publish",
     "sync": "syncpack fix-mismatches",
+    "sync:list-mismatches": "syncpack list-mismatches",
     "test": "turbo run test",
     "test:affected": "turbo run test --affected",
     "version-packages": "changeset version"
   },
   "devDependencies": {
-    "@acme/style-guide": "workspace:*",
-    "@changesets/cli": "^2.27.9",
-    "@playwright/test": "^1.48.1",
-    "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "^22.7.7",
-    "eslint": "~8.57.1",
+    "@changesets/cli": "^2.29.7",
+    "@playwright/test": "^1.56.1",
+    "@total-typescript/ts-reset": "^0.6.1",
+    "@types/node": "^24.9.1",
     "husky": "^9.1.6",
     "is-ci": "^3.0.1",
-    "lint-staged": "^15.2.10",
-    "prettier": "~3.3.3",
-    "syncpack": "^12.4.0",
-    "turbo": "^2.3.0"
+    "lint-staged": "^16.2.6",
+    "syncpack": "^13.0.4",
+    "turbo": "^2.5.8",
+    "@biomejs/biome": "^2.3.1"
   },
-  "packageManager": "pnpm@9.12.2"
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --files-ignore-unknown=true",
+      "biome check --write --no-errors-on-unmatched",
+      "biome check --write --organize-imports-enabled=false --no-errors-on-unmatched",
+      "biome check --write --unsafe --no-errors-on-unmatched",
+      "biome format --write --no-errors-on-unmatched",
+      "biome lint --write --no-errors-on-unmatched"
+    ]
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "tools/*",
+    "./.github/actions/*"
+  ]
 }
