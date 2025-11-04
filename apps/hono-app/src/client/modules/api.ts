@@ -12,9 +12,10 @@ import {
   parseResponse,
 } from "hono/client";
 import type { StatusCode } from "hono/utils/http-status";
+import { config } from "~/config/client";
 import type { ApiType } from "../../server/app";
 
-export const apiClient = hc<ApiType>("http://localhost:3000/", {
+export const apiClient = hc<ApiType>(config.VITE_API_URL, {
   init: {
     credentials: "include",
   },

@@ -9,6 +9,7 @@ test("User list should be fetched", async () => {
   const response = await request.api.users.$get();
   const users = await parseResponse(response);
 
+  expect(response.status).toBe(200);
   expect(users.at(0)).toEqual({
     id: expect.any(Number),
     name: expect.any(String),

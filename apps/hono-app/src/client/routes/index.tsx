@@ -13,7 +13,11 @@ function Index() {
     args: {},
   });
 
-  const { mutate: createUser, error } = useRpcMutation({
+  const {
+    data,
+    mutate: createUser,
+    error,
+  } = useRpcMutation({
     call: apiClient.api.users.$post,
     args: () => ({
       json: {

@@ -1,38 +1,52 @@
 import path from "node:path";
 import { serveStatic } from "@hono/node-server/serve-static";
-import { Hono } from "hono";
-import { logger } from "hono/logger";
+import { requestId } from "hono/request-id";
+import { createUserHandlers, getUsersHandlers } from "./handlers/users";
+import { requestLoggerMiddleware } from "./middleware/requestLogger";
+import { createApp, errorHandler } from "./modules/hono";
 import { render } from "./render";
-import { db } from "~/database";
-import { usersTable } from "~/database/schema";
-import z from "zod";
-import { sValidator } from "@hono/standard-validator";
+import { openAPIRouteHandler } from "hono-openapi";
+import { Scalar } from "@scalar/hono-api-reference";
 
-const userSchema = z.object({
-  name: z.string(),
-  age: z.number(),
-  email: z.string(),
-});
+const app = createApp();
 
-const app = new Hono();
+/** MIDDLEWARES */
+app.use(requestId());
+app.use(requestLoggerMiddleware);
 
-app.use(logger());
-
-const api = new Hono()
+/** API ROUTES */
+const api = createApp()
   .basePath("/api")
-  .get("/users", async (c) => {
-    const users = await db.select().from(usersTable);
+  .get("/users", ...getUsersHandlers)
+  .post("/users", ...createUserHandlers);
 
-    return c.json(users);
-  })
-  .post("/users", sValidator("json", userSchema), async (c) => {
-    const user = c.req.valid("json");
-    const newUser = await db.insert(usersTable).values(user);
-    return c.json(newUser);
-  });
+export type ApiType = typeof api;
 
 app.route("/", api);
+app.get(
+  "/openapi",
+  openAPIRouteHandler(api, {
+    documentation: {
+      info: {
+        title: "Hono API",
+        version: "1.0.0",
+        description: "Greeting API",
+      },
+      servers: [{ url: "http://localhost:3000", description: "Local Server" }],
+    },
+  })
+);
+app.get(
+  "/reference",
+  Scalar(() => {
+    return {
+      url: "/openapi",
+      proxyUrl: "https://proxy.scalar.com",
+    };
+  })
+);
 
+/** APP RENDERING AND STATIC ASSETS */
 app.use(
   "/*",
   serveStatic({
@@ -50,6 +64,6 @@ app.all("*", ({ req }) => {
   return render({ request: req.raw });
 });
 
-export default app;
+app.onError(errorHandler);
 
-export type ApiType = typeof api;
+export default app;

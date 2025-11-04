@@ -7,7 +7,7 @@ import {
   type NotFoundRouteProps,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { preamble } from "../hmr";
+import { preamble } from "../modules/hmr";
 
 export const Route = createRootRoute({
   component: RootComponent,
