@@ -32,6 +32,8 @@ monoplate/
   If not, ask for replacement. If there should be none, remove all apps with react, adjust all types and configurations to not include react related
   code - jsx transforms, plugins, etc.
 - ui package may need storybook integration. If asked to create it, setup vitest browser tests for it too
+- work with the user to potentially setup a deployment pipeline in the "changesets.yml" action.
+- work with the user to setup credentials for the changeset action.
 
 ## Tech Stack Quick Reference
 

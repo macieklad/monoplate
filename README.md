@@ -7,9 +7,6 @@
 
 Monoplate is an opinionated template for starting a javascript monorepo. It gathers best practices and well architected packages, and provides a starting point for your next monorepo.
 
-> [!NOTE]
-> Easiest way to start? Clone the repository and ask AI to "Introduce me to the monoplate setup, walk me through the first steps". Repo is configured to help you out after this prompt.
-
 **Powered by:**
 
 - 🔶 [Node.js](https://nodejs.org/en) - runtime
@@ -34,19 +31,18 @@ Monoplate is an opinionated template for starting a javascript monorepo. It gath
 
 ### First steps
 
-🙋 If you just want to start, go to the [getting started](#getting-started) section.
-
-🙋 Monorepos can be daunting and we know that. See the [philosophy](#philosophy) section to understand them a bit better. Learn why we built monoplate and how it can help you.
-
-## Getting started
-
-Start by cloning the repository and installing dependencies:
+Clone the repository
 
 ```bash
 gh repo clone macieklad/monoplate
 cd monoplate
 bun install
 ```
+
+Ask your AI agent to "Introduce me to the monoplate setup, walk me through the first steps". Repo is configured to help you out after this prompt.
+You don't have one configured? Chat with github copilot for free in the GitHub web UI.
+
+🙋 Monorepos can be daunting and we know that. See the [philosophy](#philosophy) section to understand them a bit better. Learn why monoplate was built and how it can help you.
 
 ❗ Now if you use your own organisation name, replace every occurrence of `@acme` in the repository with your own `@name`.
 
@@ -70,9 +66,7 @@ bun run dev --filter tanstack-app...
 
 The `...` syntax is taken directly from [turborepo configuration](https://turbo.build/repo/docs/core-concepts/monorepos/filtering#include-dependents-of-matched-workspaces)
 
-Package release is done automatically through the `release` script. Make sure that after you clone this repository, you will set up your npm/github packages/jsr connection in the repository. We pass `GITHUB_TOKEN` to the changeset action by default, so if you set write access for it, it will publish to GitHub packages.
-
-🙋 Using monorepos takes experience. You have to understand how to use the tools in the repo. You can start with great resources like the [monorepo tools](https://monorepo.tools/) first. Thenread [Monoplate documentation](#documentation) when you are ready.
+Package release is done automatically through the `release` script. Make sure that after you clone this repository, you will set up your npm/github packages/jsr connection. We pass `GITHUB_TOKEN` to the changeset action by default, so if you set write access for it, it will publish to GitHub packages.
 
 ## Philosophy
 
