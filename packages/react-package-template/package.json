@@ -1,29 +1,27 @@
 {
-  "name": "@acme/react-package-template",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./dist/index.js"
-  },
-  "scripts": {
-    "build": "vite build",
-    "clean": "rm -rf .turbo node_modules",
-    "format": "prettier --write . --ignore-path ../../.gitignore",
-    "lint": "eslint . --max-warnings 0",
-    "lint:fix": "eslint . --fix --max-warnings 0",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "react": "^19.2.0"
-  },
-  "devDependencies": {
-    "@acme/vite": "workspace:*",
-    "@tsconfig/vite-react": "^7.0.1",
-    "@types/react": "^19.2.2",
-    "typescript": "~5.9.3",
-    "vite": "~7.1.12",
-    "vitest": "^4.0.3"
-  }
+	"name": "@acme/react-package-template",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./dist/index.js"
+	},
+	"scripts": {
+		"build": "tsdown",
+		"clean": "rm -rf .turbo node_modules",
+		"format": "biome format --write .",
+		"lint": "biome lint .",
+		"test": "vitest",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"react": "^19.2.0"
+	},
+	"devDependencies": {
+		"@tsconfig/vite-react": "^7.0.1",
+		"@types/react": "^19.2.2",
+		"tsdown": "^0.12.6",
+		"typescript": "~5.9.3",
+		"vitest": "^4.0.3"
+	}
 }

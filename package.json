@@ -1,18 +1,19 @@
 {
   "name": "monoplate",
   "private": true,
+  "packageManager": "bun@1.3.5",
   "scripts": {
     "build": "turbo run build",
     "build:ecosystem": "turbo run build --filter='./tools/*' --filter='./packages/*'",
     "changeset": "changeset",
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --no-cache --parallel --continue",
-    "dev:color": "FORCE_COLOR=1 pnpm dev",
-    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
+    "dev:color": "FORCE_COLOR=1 bun run dev",
+    "format": "biome format --write .",
     "lint": "turbo run lint",
     "lint:affected": "turbo run lint --affected",
     "prepare": "is-ci || husky install",
-    "release": "pnpm build:ecosystem && changeset publish",
+    "release": "bun run build:ecosystem && changeset publish",
     "sync": "syncpack fix-mismatches",
     "sync:list-mismatches": "syncpack list-mismatches",
     "test": "turbo run test",
@@ -20,7 +21,7 @@
     "version-packages": "changeset version"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.7",
+    "@changesets/cli": "^2.29.8",
     "@playwright/test": "^1.56.1",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/node": "^24.9.1",
@@ -32,19 +33,14 @@
     "@biomejs/biome": "^2.3.1"
   },
   "lint-staged": {
-    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
-      "biome check --files-ignore-unknown=true",
+    "*.{js,ts,mjs,mts,jsx,tsx,json,jsonc,css,md,yml,yaml}": [
       "biome check --write --no-errors-on-unmatched",
-      "biome check --write --organize-imports-enabled=false --no-errors-on-unmatched",
-      "biome check --write --unsafe --no-errors-on-unmatched",
-      "biome format --write --no-errors-on-unmatched",
-      "biome lint --write --no-errors-on-unmatched"
+      "biome format --write --no-errors-on-unmatched"
     ]
   },
   "workspaces": [
     "packages/*",
     "apps/*",
-    "tools/*",
     "./.github/actions/*"
   ]
 }

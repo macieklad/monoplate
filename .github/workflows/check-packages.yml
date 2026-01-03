@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - '*'
-      - '!master'
+      - "*"
+      - "!master"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -17,10 +17,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Use Node.js v22.10.0 (LTS)
+      - name: Use Node.js v24.12.0 (LTS)
         uses: ./.github/actions/setup-node-environment
         with:
-          node-version: 22.10.0
+          node-version: 24.12.0
 
       - name: Check for package version drift
-        run: pnpm check-sync
+        run: bun run sync:list-mismatches

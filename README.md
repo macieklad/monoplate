@@ -5,30 +5,31 @@
     <h1 align="center">Monoplate</h1>
 </p>
 
-Monoplate is an opinionated template for starting a javascript monorepo. Aimed at parallel application development, it comes preconfigured with an ecosystem of tools for quick addition and maintenance of new apps and libraries.
+Monoplate is an opinionated template for starting a javascript monorepo. It gathers best practices and well architected packages, and provides a starting point for your next monorepo.
+
+> [!NOTE]
+> Easiest way to start? Clone the repository and ask AI to "Introduce me to the monoplate setup, walk me through the first steps". Repo is configured to help you out after this prompt.
 
 **Powered by:**
 
 - 🔶 [Node.js](https://nodejs.org/en) - runtime
-- 🏗️ [Pnpm](https://pnpm.io/) - package and workspace manager (exchangeable)
+- 🏗️ [Bun](https://bun.sh/) - package managment (but you can use it as runtime too)
 - 🏎️ [Turborepo](https://turbo.build/) - monorepo management
 - 🦋 [Changesets](https://github.com/changesets/changesets) - version management
-- 🏃 [Vite](https://vitest.dev/config/) - web tooling
-- 🌀 [Typescript](https://www.typescriptlang.org/) - type checking
-- ☑️ [Eslint](https://github.com/eslint/eslint) - linting
-- 💅 [Prettier](https://prettier.io/) - code formatting
+- 🏃 [Vite](https://vite.dev/) - web tooling
+- 📦 [tsdown](https://tsdown.dev/) - library bundling
+- 🧹 [Biome](https://biomejs.dev/) - linting and formatting
 - 🔄 [Syncpack](https://github.com/JamieMason/syncpack) - dependency management
 - 🐶 [Husky](https://github.com/typicode/husky) - git hooks
 - 🔢 [Lint Staged](https://github.com/lint-staged/lint-staged) - precommit hooks
 - 🗄️ [Github actions](https://docs.github.com/en/actions) - CI/CD
-- 🥣 [Mise en place](https://mise.jdx.dev/) - Environment versioning (node, pnpm)
+- 🥣 [Mise en place](https://mise.jdx.dev/) - Environment versioning (node, bun)
 
 **Out of the box, monoplate includes:**
 
-- 🧰 Presets for ESLint, Prettier, and Lint Staged
-- ∫∫ Integration packages for vite, tailwindcss and react
-- 🧑‍🏭 GitHub actions for testing, releasing, and deploying your projects, with caching and environment setup
-- ⛩️ Minimal package and application templates for starting your next docs, component library, API, or web application.
+- 🧰 Biome configuration for linting and formatting
+- 🧑‍🏭 GitHub actions for testing, releasing, and deploying your projects, with caching setup
+- ⛩️ Minimal package and application templates for starting your next component library or web application
 - 🎒 Extensive syncpack configuration for keeping your dependencies in check
 
 ### First steps
@@ -44,7 +45,7 @@ Start by cloning the repository and installing dependencies:
 ```bash
 gh repo clone macieklad/monoplate
 cd monoplate
-pnpm install
+bun install
 ```
 
 ❗ Now if you use your own organisation name, replace every occurrence of `@acme` in the repository with your own `@name`.
@@ -52,26 +53,26 @@ pnpm install
 If you want to run any application, make sure every dependency is built first:
 
 ```bash
-pnpm build:ecosystem
+bun run build:ecosystem
 ```
 
 Then run your example app:
 
 ```bash
-pnpm --filter remix dev
+bun run --filter tanstack-app dev
 ```
 
-You can run whole monorepo in dev mode with `pnpm dev` command. It will start the `dev` script in every repository, but this is rarely what you want. You most likely want to run a single app dev script together with its dependencies:
+You can run whole monorepo in dev mode with `bun run dev` command. It will start the `dev` script in every repository, but this is rarely what you want. You most likely want to run a single app dev script together with its dependencies:
 
 ```bash
-pnpm dev --filter remix...
+bun run dev --filter tanstack-app...
 ```
 
 The `...` syntax is taken directly from [turborepo configuration](https://turbo.build/repo/docs/core-concepts/monorepos/filtering#include-dependents-of-matched-workspaces)
 
 Package release is done automatically through the `release` script. Make sure that after you clone this repository, you will set up your npm/github packages/jsr connection in the repository. We pass `GITHUB_TOKEN` to the changeset action by default, so if you set write access for it, it will publish to GitHub packages.
 
-🙋 Using monorepos is hard. To develop projects using Monoplate you will soon have to understand how to use the tools in the repo. You can start with great resources like the [monorepo tools](https://monorepo.tools/) first. The read [Monoplate documentation](#documentation) when you are ready.
+🙋 Using monorepos takes experience. You have to understand how to use the tools in the repo. You can start with great resources like the [monorepo tools](https://monorepo.tools/) first. Thenread [Monoplate documentation](#documentation) when you are ready.
 
 ## Philosophy
 
@@ -83,151 +84,10 @@ You may decide to use them for different purposes - the use cases change mostly 
 - You develop a lot of co-dependent projects, and it is a hassle to manage them separately
 - Your teams grow, and you want to enforce a unified tooling and standards across all projects
 
-Monorepo tooling has come a long way, and it is now easier than ever to set up a monorepo. Not long ago, you had to jump into lerna and hope that everything builds nicely, that your dependencies won't collide, and that your node_modules mess won't explode. Did I mention versioning, testing and linting? Without good caching, you could be waiting for your CI to finish for hours.
+Tooling has come a long way, and it's easier than ever to set up a monorepo. Not so long ago, you had to jump into lerna and hope that everything builds nicely, that your dependencies won't collide, and that your node_modules mess won't explode. Versioning, testing and linting? Without good caching, you could be waiting for your CI to finish for hours.
 
-Now we have Turborepo, pnpm, changesets, and a lot of other tools that make monorepos a lot better. Still, after the initial setup, there is a lot of configuration to do:
+Now we have Turborepo, Bun, changesets, and a lot of other tools that make monorepos a lot better. Still, there is quite a bit of setup to do.
+The biggest issue is that there are still a lot of options to configure web tooling. You need someone with a lot of experience to configure it all.
+And LLM's without guidance also tend to choose less than optimal options. There is just not a lot of good examples out there.
 
-- How do you lint your code? ESLint? Which of a few hundred rules and plugins do you use? What about TypeScript linting? A simple app is taking 30 seconds to lint? Good luck!
-- Formatting and code style? Prettier? How to run it before committing? What about the configuration? Oh, a global config? I hope you won't run it on node_modules!
-- Building your app? Vite? Webpack? Rollup? What about the configuration? What config do you use in production? What about the environment variables? External modules? Peer dependencies? Browser support?
-- Dependency management? Three version of React in your apps? You just bundled one with your package? Too bad.
-
-If you have an expert to configure all of this, you are golden. If you are a team of one, you are in for a ride. And how to teach that to new developers?
-
-We have created Monoplate to be a point of reference. You can clone this repo and have a working setup, with common configuration packaged away so that the only thing you need to do is to write your own, business code. From the moment you clone it, the code is yours, and we provide docs and examples to help you along the way. This is crucial as monorepos by nature are heavily dependent on your own tools and practices.
-
-We also try to learn as much as you do, and look for best ways to solve monorepo issues, to provide modern configuration and build optimised apps. We are open to suggestions and PRs, and we hope that Monoplate will be a good starting point for your next project.
-
-## Documentation
-
-This section strives to guide you through concepts available in Monoplate. We will overview most things here, but deeper knowledge is hidden in the individual package documentation. If you want to understand how everything comes together from the ground up, get yourself familiar with the tools mentioned in the README introduction `Powered by` list, and then go through the repository packages and files in the following order:
-
-- root [`package.json`](./package.json)
-- [`pnpm-workspace.yaml`](./pnpm-workspace.yaml)
-- [`turbo.json`](./turbo.json)
-- [`syncpack.config.cjs`](./syncpack.config.cjs)
-- [`@acme/style-guide`](./tools/style-guide/README.md)
-- [`@acme/vite`](./tools/vite/README.md)
-- [`@acme/tailwind`](./tools/tailwind/README.md)
-- [`@acme/react-package-template`](./packages/react-package-template/README.md)
-- [`@acme/components`](./packages/components/README.md)
-- `@acme/any_app`
-
-### Project management
-
-Packages (directories with `package.json`) form the base of any javascript monorepo. We use pnpm to manage their dependencies and define how to locate them. In `pnpm-workspace.yaml` you can find which directories will be scanned for the `package.json` files and registered as **workspaces**, places where you can run scripts and install dependencies which will be centrally tracked. Pnpm does not care about relations between packages, so you can't say "build this package before that one". This is where Turbo comes in. In `turbo.json` you can define global tasks that will run a command of the same name in each of your workspaces. You define how they relate to each other, what outputs they produce, and how to cache them. Turbo will take care of the rest and make running loads of scripts a lot faster (if outputs don't change, cache will be used, making running scripts super fast even when you have tens or hundreds of packages). From this moment onward, you invoke turbo through pnpm scripts, and use it by default.
-
-Pnpm installs dependencies of all packages in a single place - root directory `node_modules`, and symlinks them to the packages. This is a huge advantage over npm and yarn, as it saves disk space and speeds up the installation process. If two packages use the same dependency and its version, it will be installed only once. You can install the same dependency in two different versions, and they will be both installed. Pnpm will isolate those packages, but from time to time, especially because of the inherent nature of javascript and global scope, you may encounter issues, for example when you will bundle two dependency versions in your final code because of the way they are imported. Also, from the organisation perspective, you probably want everyone to use the same, up-to-date version of the dependency.
-
-Pnpm and turbo don't concern themselves with this issue. This is where syncpack comes in. Syncpack is a tool that you provide with a versioning strategy for your packages, and it will ensure that everyone follows it. In Monoplate, we use a simple strategy - the newest version of dependency wins, and syncpack will bump all packages to the newest version of the dependency. This isn't always feasible, so we provide a big `syncpack.config` for you, where we fix some common versioning issues with javascript ecosystem.
-
-❓You may ask - why not a single tool that does everything? You can! Try `nx` if you want to go with this solution. What we like about our setup is that packages are totally independent. You can pull a folder out of this monorepo, replace `workspace:*` dependencies in `package.json` with precise semver versions, run pnpm install, and everything will work as if the monorepo never existed - besides CI of course.
-
-### Defining dependencies between packages
-
-Turbo operates on tasks, but you configure your package dependencies as you would install any normal package from npm. If you want to depend on a project in the repository, you use its `name` field in the `package.json` and version it with `workspace:*`. You can also use a specific version, but it will be sourced directly from your registry, not from the monorepo code itself. Publishing to registry is set up with `release` command in the `package.json`.
-
-### Code quality
-
-To maintain consistent code style and its quality, we use ESLint and Prettier. Additionally, `lint-staged` is used to run prettier formatting before each commit. Because `typescript-eslint` is used, linter is run only in the CI, otherwise code would take a lot of time to commit. `style-guide` package in the `tools` directory gathers extends vercel `style-guide` and provides common ESLint setup for all packages. In app packages, you will see that linting setup simply extends the base configuration and eventually adds some specific rules like this:
-
-```js
-module.exports = {
-  extends: [require.resolve('@acme/style-guide/eslint/react')],
-};
-```
-
-The added benefit of using a separate configuration package is that you can share it even outside the monorepo. It is published and versioned like any other project. This is especially helpful when you have older projects that won't be migrated to the monorepo, but you want to keep the same linting rules across them.
-
-### CI/CD
-
-Actions that run tests, lint files and ensure dependency synchronisation are run on every commit. Both dependency installs and task results are heavily cached with github actions and turborepo caches, so even with large number of projects, you usually won't see runs that take longer than 2-3 minutes (extended by the time it takes to run your tests of course). We depend heavily on changesets to version our, packages. To leverage this setup, there is a `trigger-workflow-for-changeset-release` action that can be used to run a workflow when a package is released. With private package versioning enabled in the `.changeset/config.json`, apps will be processed by the changesets action (albeit without publishing to package registry) so you can create separate workflows for things like app deployment, and trigger them automatically when a package is released like this:
-
-```yaml
-- name: Deploy app if it was released
-  uses: ./.github/actions/trigger-workflow-for-changesets-release@master
-  if: ${{ steps.changesets.outputs.published }}
-  with:
-    released_packages: ${{ steps.changesets.outputs.publishedPackages }}
-    github_token: ${{ secrets.GITHUB_TOKEN }}
-    package: package-name
-    workflow: deploy-app.yaml
-    workflow_inputs: |
-      {
-        "branch": "refs/tags/{package}@{version}"
-      }
-```
-
-If you use hosting providers that support monorepos out the box, this action may be unnecessary, but if you have a custom setup, or you need to run other workflows on package release, this is a simple way to achieve that.
-
-### Component library
-
-## Thanks
-
-Huge shutout to [@miikebar](https://github.com/miikebar) for his work on this project. Without his ideas and contributions, vite presets and linters, we would not have created it.
-
-## TODO
-
-### V1
-
-- [ ] Application templates
-  - [ ] Remix
-    - [ ] Docs
-    - [x] Template
-  - [ ] Next.js
-    - [ ] Docs
-    - [x] Template
-  - [ ] Astro
-    - [ ] Docs
-    - [x] Template
-    - [x] Starlight docs
-  - [ ] Storybook
-    - [ ] Docs
-    - [x] Template
-    - [ ] Used plugins
-  - [ ] Nitro API
-    - [ ] Docs
-    - [x] Template
-- [ ] Package templates
-  - [ ] Component library
-    - [ ] Docs
-    - [x] Template
-  - [ ] React package template
-    - [ ] Docs
-    - [x] Template
-- [x] Tools
-  - [x] Tailwind
-    - [x] Template
-    - [x] Docs
-      - [x] Usage
-  - [x] Vite
-    - [x] Docs
-      - [x] Usage
-      - [x] Types
-      - [x] Node externals
-  - [x] Style guide
-  - [ ] CI/CD Pipeline
-    - [x] Testing
-    - [x] Linting
-    - [x] Caching
-    - [x] Versioning
-    - [x] Labeling
-    - [ ] Docs
-- [ ] Documentation
-  - [x] Included tool links
-  - [x] Configuration after cloning
-  - [x] Renaming example `acme` names
-  - [x] Getting started
-  - [ ] Explanation for each used tool with best practices
-  - [x] Hoisting configuration and why it matters to build packages (workspace:\* dependency resolving and externalisation)
-- [x] Thanks
-
-V2 Ideas
-
-- [ ] Dependency graph
-- [ ] E2E test setup
-- [ ] Startup tests for each template
-- [ ] Module federation
-- [ ] ESLint 9 / Drop vercel style guide(?)
-- [ ] Mobile app setup
-- [ ] Verify if module.exports and .cjs are needed with Node 23 release
+We have created Monoplate to be a point of reference. Clone this repository and just start coding. As you go, learn what we did here. AGENTS.MD is provided, you can ask your AI to introduce you to the project.

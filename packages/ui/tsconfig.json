@@ -1,8 +1,7 @@
 {
-  "extends": "@tsconfig/vite-react/tsconfig.json",
-  // Dist can be included for debugging, but during build library
-  // preset will exclude it together with vite.config.ts, also,
-  // test files will be included, so don't fear to include
-  // your whole src directory in here.
-  "include": ["./src/", "./dist/", "./vite.config.ts"]
+	"extends": "@tsconfig/vite-react/tsconfig.json",
+	"compilerOptions": {
+		"types": ["vitest/globals"]
+	},
+	"include": ["./src/", "./dist/", "./tsdown.config.ts", "./vitest.config.ts"]
 }

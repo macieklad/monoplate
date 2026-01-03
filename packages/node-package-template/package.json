@@ -1,0 +1,23 @@
+{
+  "name": "@acme/node-package-template",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf .turbo node_modules dist",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.16.0",
+    "@tsconfig/node-lts": "^24.0.0",
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.3"
+  }
+}
